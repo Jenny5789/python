@@ -162,7 +162,6 @@ name_entry = tk.Entry(root, font=("맑은 고딕", 12), width = 30)
 name_entry.pack(pady=5)
 
 tk.Label(root, text="나이 (숫자만):", font=("맑은 고딕", 12)).pack(pady=5)
-age_entry = tk.Entry(root, font=("맑은 고딕", 12)).pack(pady=5)
 age_entry = tk.Entry(root, font=("맑은 고딕", 12), width=30)
 age_entry.pack(pady=5)
 
