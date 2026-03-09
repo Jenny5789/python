@@ -27,9 +27,6 @@ root.configure(bg="lightblue")  #배경색
 
 root.mainloop()
 
-'''
-
-
 
 ### 2. 텍스트 요소들 - 정보를 보여주고 받기###
 ##Label - 텍스트와 이미지 표시##
@@ -65,5 +62,141 @@ multiline_label = tk.Label(
     bg="lightgreen"
 )
 multiline_label.pack(pady=10)
+
+# 동적으로 변하는 라벨
+dynamic_var = tk.StringVar()
+dynamic_var.set("변경 가능한 텍스트")
+
+dynamic_label = tk.Label(
+    root,
+    textvariable=dynamic_var,           #StringVar 사용
+    font=("맑은 고딕", 14),
+    fg="red"
+)
+dynamic_label.pack(pady=10)
+
+# 텍스트를 변경하는 버튼
+def change_text():
+    import random
+    texts = ["안녕하세요!", "Hello!", "こんにちは!", "Bonjour!", "¡Hola!"]
+    dynamic_var.set(random.choice(texts))
+
+change_button = tk.Button(root, text="텍스트 변경", command=change_text)
+change_button.pack(pady=10)
+
+
+root.mainloop()
+
+
+
+
+
+##Entry_ 한 줄 텍스트 입력
+# 1단계: 기본 entry 만들기
+import tkinter as tk
+
+root = tk.Tk()
+root.title("Entry 기본 사용법")
+root.geometry("400x200")
+
+#기본 입력창
+tk.Label(root, text="이름을 입력하세요:", font=("맑은 고딕", 12)).pack(pady=10)
+name_entry = tk.Entry(root, font=("맑은 고딕", 12), width=30)
+name_entry.pack(pady=5)
+
+#입력값 가져오기
+def show_input():
+    user_input = name_entry.get()    #Entry에서 텍스트 가져오기
+    result_label.config(text=f"입력하신 내용: {user_input}")
+
+tk.Button(root, text="입력값 확인", command=show_input).pack(pady=10)
+
+result_label = tk.Label(root, text="", font=("맑은 고딕", 11), fg="blue")
+result_label.pack()
+
+
+root.mainloop()
+
+
+
+# 2단계: 다양한 entry 스타일
+import tkinter as tk
+
+root = tk.Tk()
+root.title("Entry 다양한 스타일")
+root.geometry("500x300")
+
+# 일반 텍스트 입력창
+tk.Label(root, text="이름:", font=("맑은 고딕", 12)).pack(pady=5)
+name_entry = tk.Entry(root, font=("맑은 고딕", 12), width=30)
+name_entry.pack(pady=5)
+
+# 비밀번호 입력창(별표로 숨김)
+tk.Label(root, text="비밀번호:", font=("맑은 고딕", 12)).pack(pady=5)
+name_entry =tk.Entry(root, font=("맑은 고딕", 12), width=30)
+name_entry.pack(pady=5)
+
+# 비밀번호 입력창 (별표로 숨김)
+tk.Label(root, text="읽기 전용:", font=("맑은 고딕", 12)).pack(pady=5)
+readonly_entry = tk.Entry(root, font=("맑은 고딕", 12), width=30, state="readonly")
+readonly_entry.insert(0, "이 텍스트는 수정할 수 없습니다")
+readonly_entry.pack(pady=5)
+
+root.mainloop()
+
+
+'''
+
+
+# 3단계: 입력값 검증과 처리
+import tkinter as tk
+import tkinter.messagebox as msgbox
+
+root = tk.Tk()
+root.title("Entry 입력과 검증")
+root.geometry("500x400")
+
+# 입력 필드들
+tk.Label(root, text="이름:", font=("맑은 고딕", 12)).pack(pady=5)
+name_entry = tk.Entry(root, font=("맑은 고딕", 12), width = 30)
+name_entry.pack(pady=5)
+
+tk.Label(root, text="나이 (숫자만):", font=("맑은 고딕", 12)).pack(pady=5)
+age_entry = tk.Entry(root, font=("맑은 고딕", 12)).pack(pady=5)
+age_entry = tk.Entry(root, font=("맑은 고딕", 12), width=30)
+age_entry.pack(pady=5)
+
+# 입력갑 처리 함수
+def process_input():
+    name = name_entry.get()
+    age = age_entry.get()
+
+    # 입력값 검증
+    if not name:
+        msgbox.showwarning("입력 오류", "이름을 입력해주세요!")
+        return
+    
+    if age and not age.isdigit():
+        msgbox.showerror("입력 오류", "나이는 숫자만 입력해주세요!")
+        return
+    
+    # 결과 표시
+    result = f"안녕하세요, {name}님!"
+    if age:
+        result += f"\n나이: {age}세"
+
+    msgbox.showinfo("입력 결과", result)
+
+# 버튼과 기능
+tk.Button(root, text="입력 처리", command=process_input, font=("맑은 고딕", 12), bg="lightgreen").pack(pady=10)
+
+def clear_all():
+    name_entry.delete(0, tk.END)    #Entry 내용 지우기
+    age_entry.delete(0, tk.END)
+
+tk.Button(root, text="모두 지우기", command=clear_all, font=("맑은 고딕", 12), bg="lightcoral").pack(pady=5)
+
+# Enter 키로 입력 처리
+root.bind('<Return>', lambda event: process_input())
 
 root.mainloop()
