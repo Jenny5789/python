@@ -145,7 +145,7 @@ readonly_entry.pack(pady=5)
 root.mainloop()
 
 
-'''
+
 
 
 # 3단계: 입력값 검증과 처리
@@ -197,5 +197,83 @@ tk.Button(root, text="모두 지우기", command=clear_all, font=("맑은 고딕
 
 # Enter 키로 입력 처리
 root.bind('<Return>', lambda event: process_input())
+
+root.mainloop()
+
+
+
+
+## Text - 여러 줄 텍스트 입력/표시
+# 1단계 : 기본 Text 위젯
+import tkinter as tk
+
+root = tk.Tk()
+root.title("Text 기본 사용법")
+root.geometry("500x300")
+
+tk.Label(root, text=" 여러 줄 텍스트 입력:", font = ("맑은 고딕", 12, "bold")).pack(pady=5)
+
+# 기본 text 위젯
+text_widget = tk.Text(
+    root,
+    height = 10,
+    width = 50,
+    font=("맑은 고딕", 11),
+    wrap=tk.WORD,               #단어 단위로 줄바꿈
+    bg="lightyellow"
+)
+text_widget.pack(pady=10)
+
+# 초기 텍스트 넣기
+text_widget.insert(tk.END, "여기에 여러 줄의 텍스트를 입력할 수 있습니다.\n")
+text_widget.insert(tk.END, "Enter를 눌러서 줄을 바꿀 수 있습니다.\n")
+text_widget.insert(tk.END, "Text 위젯은 긴 문서 작성에 적합합니다.")
+
+root.mainloop()
+
+'''
+
+# 2단계: 스크롤이 있는 text
+import tkinter as tk
+from tkinter import scrolledtext
+
+root = tk.Tk()
+root.title("스크롤 가능한 Text")
+root.geometry("500x400")
+
+tk.Label(root, text="스크롤 가능한 텍스트:", font=("맑은 고딕", 12, "bold")).pack(pady = 5)
+
+# 스크롤바가 있는 text 위젯
+text_area = scrolledtext.ScrolledText(
+    root,
+    height=15,
+    width=60,
+    font=("맑은 고딕", 11),
+    wrap=tk.WORD
+)
+text_area.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
+
+
+#많은 양의 텍스트 추가
+for i in range(50):
+    text_area.insert(tk.END, f"이것은 {i+1}번째 줄입니다. 스크롤해서 아래 내용을 확인해보세요!\n")
+
+root.mainloop()
+
+
+
+# 3단계: Text 조작 기능들
+import tkinter as tk
+
+root = tk.Tk()
+root.title("Text 조작 기능")
+root.geometry("600x400")
+
+# text 위젯
+text_widget = tk.Text(root, height=15, width=60, font=("맑은 고딕", 11))
+text_widget.pack(padx=10, pady=10)
+
+# 초기 텍스트
+
 
 root.mainloop()
