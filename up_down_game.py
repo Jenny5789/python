@@ -3,7 +3,8 @@ import random
 def main(page: ft.Page):
     page.title = "UP&DOWN GAME"
     page.window.width = 300
-    page.window.height = 180
+    page.window.height = 250
+
 
     answer = random.randint(1,100)
     input_num = ft.TextField()
