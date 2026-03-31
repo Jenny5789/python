@@ -19,13 +19,14 @@ def main(page: ft.Page):
 
     # ================= 텍스트 =================
     title = ft.Text("🌸 봄날의 가위바위보 🌸",
-                    size=32, weight="bold", color="#E75480")
+                    size=32, weight="bold", color="#E75480",
+                    text_align="center")
 
-    round_text = ft.Text("🌼 1 / 5 라운드", size=16, color="#6D8299")
+    round_text = ft.Text("🌼 1 / 5 라운드 🌼", size=16, color="#6D8299")
     score_text = ft.Text("컴퓨터 0 : 사용자 0",
                          size=20, weight="bold", color="#4A6C6F")
 
-    result_text = ft.Text("🦋 버튼을 눌러 게임을 시작하세요 🦋",
+    result_text = ft.Text("🦋 버튼을 눌러 게임을 시작하세요 🦋\n <5전 3승제>",
                           size=18, color="#7A5C61",
                           text_align="center")
 
@@ -54,20 +55,20 @@ def main(page: ft.Page):
         round_count += 1
 
         result_text.value = (
-            f"컴퓨터: {emoji[computer_choice]} {computer_choice}\n"
+            f"컴퓨터: {emoji[computer_choice]} {computer_choice}        "
             f"사용자: {emoji[user_choice]} {user_choice}\n\n👉 {result}"
         )
 
         score_text.value = f"컴퓨터 {computer_score} : 사용자 {user_score}"
-        round_text.value = f"🌼 {round_count} / 5 라운드"
+        round_text.value = f"🌼 {round_count} / 5 라운드🌼"
 
         if user_score == 3 or computer_score == 3 or round_count == 5:
             if user_score > computer_score:
-                result_text.value += "\n\n🌸 축하합니다! 승리!"
+                result_text.value += "\n\n🌸 최종 결과: 축하합니다 사용자 승 🌸"
             elif computer_score > user_score:
-                result_text.value += "\n\n🌿 컴퓨터 승리!"
+                result_text.value += "\n\n🌼 최종 결과: 컴퓨터 승 🌼"
             else:
-                result_text.value += "\n\n🌼 무승부!"
+                result_text.value += "\n\n🌿 최종 결과: 무승부 🌿"
 
         page.update()
 
@@ -78,8 +79,8 @@ def main(page: ft.Page):
         round_count = 0
 
         score_text.value = "컴퓨터 0 : 사용자 0"
-        round_text.value = "🌼 1 / 5 라운드"
-        result_text.value = "🌸 다시 시작합니다!"
+        round_text.value = "🌼 1 / 5 라운드 🌼"
+        result_text.value = "🌱 다시 시작합니다 🌱"
         page.update()
 
     def on_click(e):
