@@ -1,128 +1,305 @@
 import flet as ft
 import re
 
+
 class CalculatorApp(ft.Container):
-    def __init__(self, page):
-        super().__init__(padding=20)
-        self.page_ref = page  # 충돌을 피하기 위해 이름을 page_ref로 변경
+    def __init__(self, page: ft.Page):
+        super().__init__(
+            padding=20,
+            expand=True,
+            bgcolor="white"
+        )
+
+        self._page = page
         self.raw_data = []
 
+        # =========================
+        # 입력창
+        # =========================
         self.input_field = ft.TextField(
-            label="데이터 입력 ", 
-            width=300,
-            on_submit=self.add_item,
-            autofocus=True
+            label="데이터 입력",
+            expand=True,
+            on_submit=self.add_item
         )
-        self.list_view = ft.ListView(height=150, spacing=5)
-        self.result_container = ft.Column()
 
-        self.content = ft.Column(
-            width=400,
-            horizontal_alignment="center",
-            spacing=10,
-            controls=[
-                ft.Text("🔢 Number Data Handler", size=25, weight="bold"),
-                ft.Row([self.input_field, ft.ElevatedButton("추가", on_click=self.add_item)], alignment="center"),
-                ft.Divider(),
-                ft.Text("입력된 데이터:"),
-                ft.Container(self.list_view, border=ft.border.all(1, "grey"), height=150, padding=10),
+        # =========================
+        # 리스트
+        # =========================
+        self.list_view = ft.ListView(
+            expand=True,
+            spacing=8
+        )
+
+        self.list_container = ft.Container(
+            content=ft.Column([
                 ft.Row([
-                    ft.ElevatedButton("계산하기", on_click=self.calculate),
-                    ft.OutlinedButton("초기화", on_click=self.clear_all)
-                ], alignment="center"),
-                ft.Divider(),
-                self.result_container
+                    ft.Text("📋 입력된 데이터", weight="bold", color="#424242"),
+                    ft.Icon(ft.Icons.SWAP_VERT, color="grey", size=16)
+                ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
+
+                ft.Container(
+                    content=self.list_view,
+                    height=300
+                )
+            ]),
+            padding=10,
+            border_radius=12,
+            border=ft.border.all(1, "#DEE2E6"),
+            bgcolor="#FFFFFF"
+        )
+
+        # =========================
+        # 결과
+        # =========================
+        self.result_container = ft.Column(
+            spacing=10,
+            scroll=ft.ScrollMode.AUTO
+        )
+
+        # =========================
+        # UI
+        # =========================
+        self.content = ft.Row(
+            expand=True,
+            spacing=20,
+            controls=[
+
+                # LEFT
+                ft.Container(
+                    width=360,
+                    content=ft.Column([
+                        ft.Text(
+                            "🔢 Number Data Handler",
+                            size=24,
+                            weight="bold",
+                            color="#263238"
+                        ),
+
+                        ft.Row([
+                            self.input_field,
+                            ft.ElevatedButton(
+                                content=ft.Icon(ft.Icons.ADD),
+                                bgcolor="#2196F3",
+                                color="white",
+                                on_click=self.add_item
+                            )
+                        ]),
+
+                        ft.Divider(),
+
+                        self.list_container,
+
+                        ft.Row(
+                            [
+                                ft.OutlinedButton(
+                                    content=ft.Row([
+                                        ft.Icon(ft.Icons.CALCULATE),
+                                        ft.Text("계산하기")
+                                    ]),
+                                    style=ft.ButtonStyle(
+                                        side=ft.BorderSide(1, "#90A4AE"),
+                                        color="#1E88E5"
+                                    ),
+                                    on_click=self.calculate
+                                ),
+
+                                ft.OutlinedButton(
+                                    content=ft.Row([
+                                        ft.Icon(ft.Icons.REFRESH),
+                                        ft.Text("초기화")
+                                    ]),
+                                    style=ft.ButtonStyle(
+                                        side=ft.BorderSide(1, "#90A4AE")
+                                    ),
+                                    on_click=self.clear_all
+                                )
+                            ],
+                            alignment=ft.MainAxisAlignment.CENTER
+                        )
+                    ], spacing=12)
+                ),
+
+                # RIGHT
+                ft.Container(
+                    width=350,
+                    padding=15,
+                    border_radius=12,
+                    bgcolor="#F8F9FA",
+                    content=self.result_container
+                )
             ]
         )
 
-        # 숫자 추출 로직
+    # =========================
+    # 숫자 추출
+    # =========================
     def _extract_numbers(self):
         numbers = []
         non_numbers = []
-        
+        pattern = r"[-+]?\d*\.\d+|\d+"
+
         for item in self.raw_data:
-            if isinstance(item, str):
-                match = re.search(r"[-+]?\d*\.\d+|\d+", item)
-                if match:
-                    numbers.append(float(match.group()))
-                else:
-                    non_numbers.append(item)
-            elif isinstance(item, (int, float)):
-                numbers.append(float(item))
+            matches = re.findall(pattern, item)
+            if matches:
+                numbers.extend(map(float, matches))
             else:
                 non_numbers.append(item)
+
         return numbers, non_numbers
 
-    # 포맷팅 도우미
     def _format_value(self, value):
-        rounded_val = round(value, 2)
-        if rounded_val == int(rounded_val):
-            return str(int(rounded_val))
-        return f"{rounded_val:.2f}"
+        v = round(value, 2)
+        return str(int(v)) if v == int(v) else f"{v:.2f}"
 
-    # 이벤트 처리: 항목 추가
+    # =========================
+    # 카드 UI
+    # =========================
+    def make_card(self, label, value, color):
+        return ft.Container(
+            content=ft.Row(
+                [
+                    ft.Text(label, weight="bold"),
+                    ft.Text(value, weight="bold")
+                ],
+                alignment=ft.MainAxisAlignment.SPACE_BETWEEN
+            ),
+            padding=12,
+            border_radius=10,
+            bgcolor=color
+        )
+
+    # =========================
+    # 리스트 아이템 (삭제 버튼 작게)
+    # =========================
+    def make_item_card(self, value):
+        return ft.Container(
+            content=ft.Row(
+                [
+                    ft.Text(value, expand=True),
+
+                    ft.IconButton(
+                        icon=ft.Icons.DELETE,
+                        icon_size=16,   # ⭐ 작게
+                        icon_color="#E53935",
+                        tooltip="삭제",
+                        on_click=lambda e, v=value: self.remove_item(v)
+                    )
+                ],
+                alignment=ft.MainAxisAlignment.SPACE_BETWEEN
+            ),
+            padding=10,
+            border_radius=10,
+            bgcolor="#E3F2FD"
+        )
+
+    # =========================
+    # 추가
+    # =========================
     def add_item(self, e):
         val = self.input_field.value.strip()
         if not val:
             return
-        
-        self.raw_data.append(val)
-        self.list_view.controls.append(ft.Text(f"- {val}"))
-        self.input_field.value = ""
-        self.update()
 
-    # 이벤트 처리: 초기화
+        self.raw_data.append(val)
+        self.list_view.controls.append(self.make_item_card(val))
+
+        self.input_field.value = ""
+        self.input_field.focus()
+        self._page.update()
+
+    # =========================
+    # 삭제
+    # =========================
+    def remove_item(self, value):
+        if value in self.raw_data:
+            self.raw_data.remove(value)
+
+        self.list_view.controls = [
+            c for c in self.list_view.controls
+            if value not in c.content.controls[0].value
+        ]
+
+        self._page.update()
+
+    # =========================
+    # 초기화
+    # =========================
     def clear_all(self, e):
-        self.raw_data = []
+        self.raw_data.clear()
         self.list_view.controls.clear()
         self.result_container.controls.clear()
-        self.update()
+        self._page.update()
 
-    # 이벤트 처리: 계산
+    # =========================
+    # 계산 (완전 복구 버전)
+    # =========================
     def calculate(self, e):
         nums, non_nums = self._extract_numbers()
         self.result_container.controls.clear()
-        
+
         if not nums:
-            self.result_container.controls.append(ft.Text("계산할 숫자가 없습니다.", color="red"))
+            self.result_container.controls.append(
+                ft.Text("계산할 숫자가 없습니다.", color="red")
+            )
         else:
             add_res = sum(nums)
             sub_res = nums[0] - sum(nums[1:]) if len(nums) > 1 else nums[0]
+
             mul_res = 1
-            for n in nums: mul_res *= n
-            
+            for n in nums:
+                mul_res *= n
+
             div_res = nums[0]
             div_error = False
             for n in nums[1:]:
-                if n != 0: div_res /= n
-                else: div_error = True
-            
-            results = [
-                f"합계: {self._format_value(add_res)}",
-                f"차이: {self._format_value(sub_res)}",
-                f"곱: {self._format_value(mul_res)}",
-                f"나눗셈: {'0 포함 계산불가' if div_error else self._format_value(div_res)}",
-                f"평균: {self._format_value(sum(nums)/len(nums))}",
-                f"최대/최소: {self._format_value(max(nums))} / {self._format_value(min(nums))}"
-            ]
-            
-            for res in results:
-                self.result_container.controls.append(ft.Text(res, size=16))
-            
-            if non_nums:
-                self.result_container.controls.append(ft.Text(f"숫자 아님: {non_nums}", color="gray", italic=True))
+                if n != 0:
+                    div_res /= n
+                else:
+                    div_error = True
 
-        self.update()
+            self.result_container.controls.append(
+                ft.Column([
+                    self.make_card("➕ 합계", self._format_value(add_res), "#E3F2FD"),
+                    self.make_card("➖ 차이", self._format_value(sub_res), "#FFF3E0"),
+                    self.make_card("✖ 곱", self._format_value(mul_res), "#F3E5F5"),
+                    self.make_card(
+                        "➗ 나눗셈",
+                        "계산불가" if div_error else self._format_value(div_res),
+                        "#E8F5E9"
+                    ),
+                    self.make_card("📊 평균", self._format_value(sum(nums)/len(nums)), "#F5F5F5"),
+                    self.make_card("🔺 최대", self._format_value(max(nums)), "#FFEBEE"),
+                    self.make_card("🔻 최소", self._format_value(min(nums)), "#E3F2FD"),
+                ], spacing=8)
+            )
+
+        if non_nums:
+            self.result_container.controls.append(
+                ft.Container(
+                    content=ft.Column([
+                        ft.Text("⚠ 숫자가 아닌 데이터", weight="bold"),
+                        ft.Divider(),
+                        ft.Column([
+                            ft.Text(f"• {n}") for n in non_nums
+                        ])
+                    ]),
+                    padding=15,
+                    border_radius=12,
+                    bgcolor="#FFF8E1"
+                )
+            )
+
+        self._page.update()
+
+
+# =========================
+# 실행
+# =========================
 def main(page: ft.Page):
     page.title = "Number Data Handler"
-    page.window_width = 420
-    page.window_height = 600
-    page.vertical_alignment = "center"
-    page.horizontal_alignment = "center"
-    
-    # 클래스 생성 시 page를 전달
-    app = CalculatorApp(page)
-    page.add(app)
+    page.bgcolor = "#F1F3F5"
+    page.scroll = ft.ScrollMode.AUTO
+    page.add(CalculatorApp(page))
 
-if __name__ == "__main__":
-    ft.app(target=main)
+
+ft.run(main)
