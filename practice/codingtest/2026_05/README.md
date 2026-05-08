@@ -61,3 +61,10 @@
 | `[x for x in list if 조건]` | 조건에 맞는 원소만 새 리스트로 반환 | `[x for x in arr if "ad" not in x]` |
 | `list.remove(x)` | 값이 정확히 일치하는 첫 번째 원소 삭제 | 부분 문자열 검색 불가 ❌ |
  
+## 🔍 문자열 시작·끝 확인
+
+| 함수 | 설명 | 예시 |
+|------|------|------|
+| `startswith(prefix)` | 문자열이 지정한 문자(열)로 시작하면 `True` | `"hello".startswith("he")` → `True` |
+| `endswith(suffix)` | 문자열이 지정한 문자(열)로 끝나면 `True` | `"hello".endswith("lo")` → `True` |
+> 💡 두 함수 모두 **대소문자를 구분**하며, `True` / `False`를 반환합니다.
