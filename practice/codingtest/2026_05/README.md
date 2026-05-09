@@ -68,3 +68,13 @@
 | `startswith(prefix)` | 문자열이 지정한 문자(열)로 시작하면 `True` | `"hello".startswith("he")` → `True` |
 | `endswith(suffix)` | 문자열이 지정한 문자(열)로 끝나면 `True` | `"hello".endswith("lo")` → `True` |
 > 💡 두 함수 모두 **대소문자를 구분**하며, `True` / `False`를 반환합니다.
+
+
+## 🔢 산술 연산
+| 함수 | 설명 | 예시 |
+|------|------|------|
+| `math.prod(iterable)` | 반복 가능한 객체 내 모든 요소의 **곱**을 반환 | `math.prod([2, 3, 4])` → `24` |
+| `sum(iterable)` | 반복 가능한 객체 내 모든 요소의 **합**을 반환 | `sum([2, 3, 4])` → `9` |
+| `math.fsum(iterable)` | 부동소수점 오차를 줄인 정밀한 **합**을 반환 | `math.fsum([0.1, 0.2])` → `0.3` |
+
+> 💡 `sum()`은 built-in 함수로 `import` 없이 사용 가능하며, 나머지는 `import math`가 필요합니다.
