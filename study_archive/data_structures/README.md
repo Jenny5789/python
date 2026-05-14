@@ -1,3 +1,8 @@
+# 📚 Study Archive/data_structures
+
 ## 📂 Repository Structure
 
-- **data_structures/**
+```text
+ data_structures/
+    ├── tree/       
+    └── search_tree/
