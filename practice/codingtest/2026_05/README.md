@@ -69,8 +69,12 @@
 | `math.prod(iterable)` | 반복 가능한 객체 내 모든 요소의 **곱**을 반환 | `math.prod([2, 3, 4])` → `24` |
 | `sum(iterable)` | 반복 가능한 객체 내 모든 요소의 **합**을 반환 | `sum([2, 3, 4])` → `9` |
 | `math.fsum(iterable)` | 부동소수점 오차를 줄인 정밀한 **합**을 반환 | `math.fsum([0.1, 0.2])` → `0.3` |
+| `math.sqrt(x)` | x의 **제곱근**을 반환 | `math.sqrt(9)` → `3.0` |
+| `math.pow(x, y)` | x의 y **거듭제곱**을 반환 | `math.pow(2, 3)` → `8.0` |
 
-> 💡 `sum()`은 built-in 함수로 `import` 없이 사용 가능하며, 나머지는 `import math`가 필요합니다.
+> 💡 `sum()`은 built-in 함수로 `import` 없이 사용 가능하며, 나머지는 `import math`가 필요합니다.  
+> 💡 `math.sqrt()`와 `math.pow()`는 항상 **float** 타입을 반환합니다.  
+> 💡 `math.pow(x, y)`는 `x ** y`와 결과가 같지만, `**`는 `int`도 반환할 수 있습니다.
 
 ## ✅ 불리언 (Boolean)
 | 값 | 설명 | 예시 |
@@ -105,3 +109,23 @@
 >     print(name, score)  # ValueError: zip() has arguments with different lengths 🚨
 > ```
 > 💡 길이가 다르면 오류를 터뜨려서 데이터가 빠진 걸 바로 알 수 있습니다. 두 리스트가 반드시 같은 길이여야 한다고 확신할 때 사용하면 좋습니다.
+> ```
+>
+## 🔢 문자열 숫자 확인
+| 함수 | 설명 | 예시 |
+|------|------|------|
+| `isdigit()` | 문자열이 0~9 범위의 숫자 문자(위첨자 등 포함)로만 이루어졌으면 `True` | `"123".isdigit()` → `True` |
+| `isnumeric()` | 문자열이 숫자로 표현 가능한 문자(분수, 거듭제곱 등 포함)로만 이루어졌으면 `True` | `"½".isnumeric()` → `True` |
+
+> 💡 두 함수 모두 빈 문자열이면 `False`를 반환합니다.
+>
+> | 문자열 | `isdigit()` | `isnumeric()` |
+> |--------|-------------|---------------|
+> | `"123"` | `True` | `True` |
+> | `"²"` (위첨자) | `True` | `True` |
+> | `"½"` (분수) | `False` | `True` |
+> | `"a234"` | `False` | `False` |
+> | `"abc"` | `False` | `False` |
+>
+> ⚠️ 일반적인 정수 입력 검증에는 `isdigit()`으로 충분하지만,  
+> 유니코드 숫자 문자까지 포함해야 한다면 `isnumeric()`을 사용하세요.
