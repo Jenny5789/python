@@ -5,6 +5,10 @@
 | `lower()` | 모든 문자를 소문자로 변경 | `"HELLO".lower()` → `"hello"` |
 | `swapcase()` | 대문자 ↔ 소문자 일괄 변환 | `"Hello".swapcase()` → `"hELLO"` |
 | `title()` | 각 단어의 첫 글자만 대문자, 나머지 소문자 | `"hello world".title()` → `"Hello World"` |
+| `capitalize()` | 문자열 전체에서 첫 글자만 대문자, 나머지는 모두 소문자로 변경 | `"hello world".capitalize()` → `"Hello world"` |
+
+> 💡 `title()`은 **각 단어**의 첫 글자를 대문자로, `capitalize()`는 **문자열 전체에서 딱 한 번**만 적용합니다.  
+> 💡 `capitalize()`는 첫 글자 이후를 **소문자로 강제 변환**합니다. (`"hELLO".capitalize()` → `"Hello"`)
 
 ## ✂️ 문자열 공백·문자 제거
 | 함수 | 설명 | 예시 |
@@ -58,7 +62,22 @@
 > ```
 >
 > 💡 문자열 정렬 기준은 **유니코드 코드포인트** 순서로, 대문자(`A~Z`)가 소문자(`a~z`)보다 앞에 옵니다.
->
+
+---
+
+## 🔄 map 함수
+| 함수 | 설명 | 예시 |
+|------|------|------|
+| `map(function, iterable)` | 이터러블의 각 요소에 함수를 적용한 **map 객체** 반환 | `map(int, ["1","2","3"])` → `<map object>` |
+| `list(map(function, iterable))` | map 객체를 **리스트**로 변환 | `list(map(int, ["1","2","3"]))` → `[1, 2, 3]` |
+
+> ```python
+> num = "1 2 3 4 5".split()       # → ["1", "2", "3", "4", "5"]
+> int_num = list(map(int, num))   # → [1, 2, 3, 4, 5]
+> ```
+
+---
+
 ## 🔍 리스트 필터링
 | 방법 | 설명 | 예시 |
 |------|------|------|
@@ -120,8 +139,7 @@
 >     print(name, score)  # ValueError: zip() has arguments with different lengths 🚨
 > ```
 > 💡 길이가 다르면 오류를 터뜨려서 데이터가 빠진 걸 바로 알 수 있습니다. 두 리스트가 반드시 같은 길이여야 한다고 확신할 때 사용하면 좋습니다.
-> ```
->
+
 ## 🔢 문자열 숫자 확인
 | 함수 | 설명 | 예시 |
 |------|------|------|
