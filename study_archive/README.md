@@ -7,5 +7,6 @@
 study_archive/
 ├── python/         
 └── data_structures/
-    ├── tree/       
+    ├── list/
+    ├── tree/         
     └── search_tree/
