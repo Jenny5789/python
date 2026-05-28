@@ -1,12 +1,10 @@
 # 📚 Study Archive
 
-
 ## 📂 Repository Structure
 
-```text
-study_archive/
-├── python/         
-└── data_structures/
-    ├── list/ 🔗[바로가기](./data_structures/data_structure_list.py)
-    ├── tree/         
-    └── search_tree/
+study_archive/<br>
+├── python/<br>
+└── data_structures/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── [list/](./data_structures/data_structure_list.py)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── tree/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;└── search_tree/
