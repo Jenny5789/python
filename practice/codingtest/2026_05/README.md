@@ -1,3 +1,25 @@
+## 📋 리스트 컴프리헨션 (List Comprehension)
+
+```python
+# for 루프
+for i in range(5):
+    result.append(i*2)
+
+# 리스트 컴프리헨션
+[i*2 for i in range(5)]
+```
+
+| 형태 | 설명 |
+|------|------|
+| 기본형 | `[반환값 for 변수 in 반복가능객체]` |
+| 조건 필터링 | `[반환값 for 변수 in 반복가능객체 if 조건]` |
+| 조건 표현식 | `[True일때 if 조건 else False일때 for 변수 in 반복가능객체]` |
+
+> 💡기본형 :  `[i*2 for i in range(5)]` → `[0, 2, 4, 6, 8]` <br>
+> 💡조건 필터링: `[i for i in range(5) if i % 2 == 0]` → `[0, 2, 4]`<br>
+> 💡조건 표현식:  `['짝' if i%2==0 else '홀' for i in range(4)]` → `['짝', '홀', '짝', '홀']`<br>
+
+
 ## 📝 문자열 대소문자 변환
 | 함수 | 설명 | 예시 |
 |------|------|------|
