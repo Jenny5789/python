@@ -36,7 +36,7 @@ pip install flet
  
 ### 실행
 ```bash
-python flet_매대계산기.py
+python flet_pos_system.py
 ```
  
 **첫 실행**: DB가 자동 생성됩니다 (mart.db)
@@ -46,7 +46,7 @@ python flet_매대계산기.py
 ```
 pos_system/
 ├── README.md
-├── flet_매대계산기.py
+├── flet_pos_system.py
 ├── mart.db (첫 실행 시 자동 생성)
 └── images/
     ├── home.png

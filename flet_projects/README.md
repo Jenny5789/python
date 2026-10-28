@@ -18,7 +18,7 @@ Flet을 사용한 애플리케이션 모음입니다. 게임부터 유틸리티�
 
 ### 4. 💳 POS System 
 편의점 판매 시스템. POS 모드와 ADMIN 모드.
-- **파일**: `flet_매대계산기.py`
+- **파일**: `flet_pos_system.py`
 - **기능**: 상품 판매, 재고 관리, 매출 통계
 - **특징**: SQLite DB, 카테고리 필터, 실시간 결제
 
@@ -63,7 +63,7 @@ python bowling_score.py
 python flet_calculator_class.py
 
 # POS 시스템
-python flet_매대계산기.py
+python flet_pos_system.py
 
 # 가위바위보
 python flet_RSP_game.py
@@ -89,7 +89,7 @@ flet_projects/
 │   ├── README.md
 │   └── images/
 ├── pos_system/
-│   ├── flet_매대계산기.py
+│   ├── flet_pos_system.py
 │   ├── mart.db
 │   ├── README.md
 │   └── images/

@@ -16,7 +16,7 @@
 
 ```
 pandas/
-├── 우리나라대기오염 데이터 분석_pandas.ipynb
+├── air_pollution_pandas.ipynb
 └── data/
     └── airkorea.xlsx
 
