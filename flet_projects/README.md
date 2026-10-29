@@ -1,108 +1,46 @@
-# 🎨 Flet Projects Collection
+# Flet Projects
 
-Flet을 사용한 애플리케이션 모음입니다. 게임부터 유틸리티까지 다양한 GUI 프로젝트들 입니다.
+## 목표
+- 파이썬 이론 학습 내용을 Flet GUI 앱으로 구현
+- 입력·이벤트 처리 → 상태 관리 → 클래스 구조 → DB 연동 순으로 규모를 키우며 연습
+- 이론 정리: [study_archive/theory](../study_archive/theory/README.md)
 
-## 📦 프로젝트 목록
+## 통합 역량
+| 역량 | 구현 내용 | 프로젝트 | 이론 문서 |
+|---|---|---|---|
+| 이벤트 처리, 화면 상태 관리 | `on_click`, `on_change`, 상태 변경 후 `page.update()` | 전체 | [08_functions](../study_archive/theory/08_functions.md) |
+| 객체지향 설계 | 클래스 기반 UI, `ft.Container` 상속, 속성으로 상태 관리 | Number Data Handler, Bowling Score, Phonenumber Book | [14_classes_oop](../study_archive/theory/14_classes_oop.md) |
+| 자료구조 활용 | 딕셔너리(연락처, 장바구니), 리스트(롤 기록) | Phonenumber Book, POS System, Bowling Score | [03_data_types](../study_archive/theory/03_data_types.md) |
+| 알고리즘 구현 | 프레임별 점수 계산(스트라이크·스페어 보너스), 승패 판정 | Bowling Score, Rock Paper Scissors | [11_algorithm_problems](../study_archive/theory/11_algorithm_problems.md), [09_rps_game](../study_archive/theory/09_rps_game.md) |
+| 입력 검증, 예외 처리 | 정규식 숫자 판별, 비숫자 분류, 0 나눗셈 처리, `try/except` | Number Data Handler, POS System | [13_exceptions](../study_archive/theory/13_exceptions.md) |
+| DB 연동 | SQLite 생성·조회·수정, 집계 쿼리, `?` 바인딩 | POS System | [12_shopping_cart_sales_system](../study_archive/theory/12_shopping_cart_sales_system.md) |
+| 구조 비교 | 같은 기능을 함수형·클래스형으로 구현 | Number Data Handler | [08_functions](../study_archive/theory/08_functions.md), [14_classes_oop](../study_archive/theory/14_classes_oop.md) |
 
-### 6. 🎳 Bowling Score
-정식 보링 점수 계산 애플리케이션. Strike, Spare, 10프레임 규칙 완벽 구현.
-- **파일**: `bowling_score.py`
-- **기능**: 점수 계산, 프레임 관리, 300점 퍼펙트 게임 지원
-- **특징**: 다크 테마, 네온 오렌지 UI
+## 프로젝트
+| 프로젝트명 | 한 줄 소개 | 핵심 기술 |
+|---|---|---|
+| [UP-DOWN Game](up_down_game/) | 숫자 맞추기 게임 (UP/DOWN 피드백) | 난수 비교, 이벤트 처리 |
+| [Phonenumber Book](phonenumber_book/) | 연락처 추가·검색·조회·삭제 앱 | 클래스, 딕셔너리 |
+| [Rock Paper Scissors](RSP_game/) | 5판 3승제 가위바위보 게임 | 상태 관리(`nonlocal`), 승패 판정 |
+| [POS System](POS_system/) | 편의점 POS·관리자 시스템 | SQLite, 집계 쿼리 |
+| [Number Data Handler](Calculator/) | 7종 연산·통계 계산 앱 | 정규식 파싱, 함수형·클래스형 비교 |
+| [Bowling Score](Bowling_score/) | 스트라이크·스페어 반영 점수 계산 앱 | 점수 계산 알고리즘, 버튼 상태 제어 |
 
-### 5. 🔢 Number Data Handler
-숫자 데이터 입력 및 7가지 통계 계산 애플리케이션.
-- **파일**: `flet_calculator_class.py`
-- **기능**: 합, 차, 곱, 나눗셈, 평균, 최대, 최소 계산
-- **특징**: 클래스 기반, 에러 처리 (숫자 아닌 데이터 분류)
-
-### 4. 💳 POS System 
-편의점 판매 시스템. POS 모드와 ADMIN 모드.
-- **파일**: `flet_pos_system.py`
-- **기능**: 상품 판매, 재고 관리, 매출 통계
-- **특징**: SQLite DB, 카테고리 필터, 실시간 결제
-
-### 3. ✊✌️✋ Rock Paper Scissors Game
-5전 3승제 가위바위보 게임
-- **파일**: `flet_RSP_game.py`
-- **기능**: 컴퓨터 vs 플레이어, 라운드 추적, 최종 판정
-- **특징**: 벚꽃 테마 (꽃, 나비), 분홍색 UI
-
-### 2. 📞 Phonenumber Book 
-연락처 관리 애플리케이션.
-- **파일**: `flet_phonenumber_book.py`
-- **기능**: 추가, 검색, 목록 조회, 삭제
-- **특징**: 카드 디자인, 노란색 배경
-
-### 1. ⬆️⬇️ UP-DOWN Game 
-1~100 사이의 숫자를 맞추는 게임.
-- **파일**: `up_down_game.py`
-- **기능**: UP/DOWN 피드백, 시도 횟수 추적
-- **특징**: 간단한 UI, 초보자 친화적
-
-## 🛠️ 설치 및 실행
-
-### 요구사항
-```bash
-python >= 3.8
-flet >= 0.20
-sqlite3 (POS 시스템용)
-```
-
-### 설치
+## 실행 방법
 ```bash
 pip install flet
+cd <프로젝트 폴더>
+python <실행 파일>
 ```
 
-### 각 프로젝트 실행
-```bash
-# 보링 점수
-python bowling_score.py
+| 프로젝트 | 실행 파일 |
+|---|---|
+| UP-DOWN Game | `up_down_game.py` |
+| Phonenumber Book | `flet_phonenumber_class.py` |
+| Rock Paper Scissors | `flet_RSP_game.py` |
+| POS System | `flet_pos_system.py` |
+| Number Data Handler | `flet_calculator_class.py` |
+| Bowling Score | `flet_bowlingpoints.py` |
 
-# 숫자 계산기
-python flet_calculator_class.py
-
-# POS 시스템
-python flet_pos_system.py
-
-# 가위바위보
-python flet_RSP_game.py
-
-# 전화번호부
-python flet_phonenumber_book.py
-
-# 업다운 게임
-python up_down_game.py
-```
-
-## 📁 디렉토리 구조
-
-```
-flet_projects/
-├── README.md (이 파일)
-├── bowling_score/
-│   ├── bowling_score.py
-│   ├── README.md
-│   └── images/
-├── calculator/
-│   ├── flet_calculator_class.py
-│   ├── README.md
-│   └── images/
-├── pos_system/
-│   ├── flet_pos_system.py
-│   ├── mart.db
-│   ├── README.md
-│   └── images/
-├── rsp_game/
-│   ├── flet_RSP_game.py
-│   ├── README.md
-│   └── images/
-├── phonenumber_book/
-│   ├── flet_phonenumber_book.py
-│   ├── README.md
-│   └── images/
-└── up_down_game/
-    ├── up_down_game.py
-    ├── README.md
-    └── images/
-```
+- 개발 시 사용한 Flet 버전: (`pip show flet` 결과를 여기에 기입)
+- Flet은 버전에 따라 API 이름이 달라서, 위 버전으로 맞춰 설치 권장: `pip install flet==<버전>`
