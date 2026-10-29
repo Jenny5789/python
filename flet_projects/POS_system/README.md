@@ -1,94 +1,63 @@
+# POS System
 
-# POS SYSTEM 💳
- 
-Flet으로 만든 편의점 판매 시스템.<br> POS 모드에서 상품 판매, ADMIN 모드에서 상품 및 매출 관리합니다.
- 
-## 🎮 스크린샷
- 
-| POS - 상품 조회 | POS - 장바구니 |
-|---|---|
-| ![](./images/home.png) | ![](./images/pos.png) |
- 
-| ADMIN - 수정 전 | ADMIN - 수정 후 |
-|---|---|
-| ![](./images/admin_before.png) | ![](./images/admin_after.png) |
- 
-## ✨ 기능
- 
-### POS 모드 (판매)
-- **상품 검색**: 상품명으로 빠른 검색
-- **카테고리 필터**: 카테고리별 상품 조회
-- **장바구니**: 상품 추가, 수량 조정
-- **결제**: 현금/카드 결제 처리
-- **영수증**: 실시간 총액 계산
-### ADMIN 모드 (관리)
-- **상품 관리**: 상품명, 가격, 재고, 카테고리 수정
-- **매출 통계**: 
-  - 일일 매출
-  - 주간 매출 (7일)
-  - 전체 누적 매출
-## 🛠️ 설치 및 실행
- 
-### 설치
+Flet 기반 편의점 POS·관리자 시스템 (SQLite 연동)
+
+## 프로젝트 소개
+
+- 함수 단위 모듈화, 딕셔너리 자료구조, 예외 처리 이론을 적용하고 SQLite 저장 계층을 더하기 위해 개발
+- 딕셔너리 기반으로 설계한 장바구니·매출 시스템을 DB 연동 애플리케이션으로 확장
+
+## 적용 이론 및 구현 내용
+
+**핵심 역량**: DB 계층 분리, SQLite 집계 쿼리, 파라미터 바인딩, 상태 관리
+
+| 역량 | 구현 내용 | 이론 |
+|---|---|---|
+| DB 계층 분리 | `get_products()`, `get_sales()`, `pay()` 등 함수 단위로 구성 | [08_functions](../../study_archive/theory/08_functions.md) |
+| SQLite CRUD | 매출 `INSERT`, 상품 `SELECT`, 가격·재고·카테고리 `UPDATE` | [12_shopping_cart_sales_system](../../study_archive/theory/12_shopping_cart_sales_system.md) |
+| 집계 쿼리 | `SUM`, `LIKE`, `IFNULL`로 일일·주간·누적 매출 산출 | [12_shopping_cart_sales_system](../../study_archive/theory/12_shopping_cart_sales_system.md) |
+| 파라미터 바인딩 | 값이 들어가는 모든 쿼리에 `?` 사용, SQL 인젝션 방지 | [12_shopping_cart_sales_system](../../study_archive/theory/12_shopping_cart_sales_system.md) |
+| 상태 관리 | 딕셔너리 기반 장바구니, 수량 변경 시 영수증·총액 즉시 갱신 | [03_data_types](../../study_archive/theory/03_data_types.md) |
+| 입력 검증 | `try/except`로 숫자가 아닌 수량 입력 무시 | [13_exceptions](../../study_archive/theory/13_exceptions.md) |
+| 이벤트 핸들러 | 반복문 안에서 `lambda e, n=name:`으로 상품별 이벤트 연결 | [08_functions](../../study_archive/theory/08_functions.md) |
+| 동적 렌더링 | 상품 검색·카테고리 필터로 상품 그리드 갱신 | [07_flow_control](../../study_archive/theory/07_flow_control.md) |
+
+## 구현 결과 및 실행
+
+### 스크린샷
+
+<table>
+<tr><td align="center" valign="top"><img src="./images/pos.png" width="420"><br><sub>POS 모드 — 상품 선택 시 영수증에 수량·단가·합계 반영, TOTAL 70,000 (6개 상품)</sub></td><td align="center" valign="top"><img src="./images/admin_after.png" width="420"><br><sub>ADMIN 모드 수정 후 — 비누 14,000→10,000원, 재고 23→20 저장이 상품 표에 반영</sub></td></tr>
+</table>
+
+<details>
+<summary>스크린샷 더 보기</summary>
+
+<table>
+<tr><td align="center" valign="top"><img src="./images/home.png" width="420"><br><sub>POS 모드 초기 화면 — 상품 검색, 카테고리 필터 7종, 상품 카드(가격·재고), 빈 영수증, CASH/CARD 버튼</sub></td><td align="center" valign="top"><img src="./images/admin_before.png" width="420"><br><sub>ADMIN 모드 수정 전 — 상품 표(품명·가격·재고·수정 버튼), 빈 PRODUCT EDIT 폼, SALES(오늘·주간·누적 매출)</sub></td></tr>
+</table>
+
+</details>
+
+### 사용 기술
+
+Python, Flet, SQLite(`sqlite3`)
+
+### 개선 방향
+
+- 결제 시 재고 차감 로직 추가
+- 결제 수단별(CASH/CARD) 매출 구분 기록
+- 상품 추가·삭제 기능으로 CRUD 완성
+
+### 실행 방법
+
 ```bash
 pip install flet
-```
- 
-### 실행
-```bash
 python flet_pos_system.py
 ```
- 
-**첫 실행**: DB가 자동 생성됩니다 (mart.db)
- 
-## 📁 파일 구조
- 
-```
-pos_system/
-├── README.md
-├── flet_pos_system.py
-├── mart.db (첫 실행 시 자동 생성)
-└── images/
-    ├── home.png
-    ├── pos.png
-    ├── admin_before.png
-    └── admin_after.png
-```
- 
-## 💾 데이터베이스
- 
-**자동 생성되는 테이블:**
-### products 테이블
-```
-name (텍스트, 기본키)
-price (정수)
-stock (정수)
-category (텍스트)
-```
- 
-### sales 테이블
-```
-id (자동 증가)
-amount (판매액)
-date (날짜시간)
-method (결제 방식: CARD/CASH)
-```
- 
-**초기 데이터**: 없음 (ADMIN 모드에서 직접 추가)
- 
-## 🎮 사용 방법
- 
-### POS 모드 (판매)
-1. 좌측에서 상품 검색 또는 카테고리 선택
-2. 상품 클릭하여 장바구니에 추가
-3. 우측 영수증에서 수량 조정
-4. CASH/CARD 버튼으로 결제
-5. 자동으로 판매 기록 저장
-   
-### ADMIN 모드 (관리)
-1. 좌측에서 기존 상품 확인
-2. 우측 입력창에 정보 입력
-3. 저장 버튼으로 상품 추가/수정
-4. 매출 통계 실시간 확인
 
- 
+### 파일 구성
+
+- `flet_pos_system.py`: 전체 코드
+- `mart.db`: 상품 87개, 매출 데이터
+- `images/`: 스크린샷
