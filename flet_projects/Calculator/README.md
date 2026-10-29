@@ -1,60 +1,60 @@
-# 🔢 Number Data Handler
- 
-Flet으로 만든 숫자 데이터 처리 및 통계 계산 애플리케이션입니다. 여러 숫자를 입력하고 즉시 7가지 통계를 계산합니다.
- 
-## 🎮 스크린샷
- 
-| 홈 화면 | 데이터 입력 | 계산 결과 |
+# Number Data Handler
+
+Flet 기반 숫자 데이터 처리 앱 (7종 연산·통계 계산)
+
+## 프로젝트 소개
+
+- 클래스 상속과 입력 데이터 처리 이론을 적용하고 설계 방식에 따른 구조 차이를 비교하기 위해 개발
+- 동일 기능을 함수형·클래스형으로 각각 구현
+
+## 적용 이론 및 구현 내용
+
+**핵심 역량**: 클래스 설계, 정규식 입력 파싱, 함수형·클래스형 구조 비교
+
+| 역량 | 구현 내용 | 이론 |
 |---|---|---|
-| ![](./images/home.png) | ![](./images/input.png) | ![](./images/output.png) |
- 
-## ✨ 기능
- 
-- **숫자 입력**: 정수 또는 소수 입력 가능
-- **데이터 관리**: 입력한 숫자 리스트 표시 및 개별 삭제
-- **7가지 계산**:
-  - ➕ **합계**: 모든 숫자의 합
-  - ➖ **차이**: 첫 번째 수에서 나머지를 뺀 값
-  - ✖️ **곱**: 모든 숫자의 곱
-  - ➗ **나눗셈**: 첫 번째 수를 나머지로 나눔 (0으로 나누는 경우 제외)
-  - 📊 **평균**: 입력된 숫자의 평균값
-  - 🔺 **최대**: 가장 큰 숫자
-  - 🔻 **최소**: 가장 작은 숫자
-- **에러 처리**: 숫자가 아닌 데이터 자동 분류 및 경고
-## 🛠️ 설치 및 실행
- 
-### 설치
+| 클래스 설계 | `ft.Container`를 상속한 클래스(`CalculatorApp`)로 앱 구성 | [14_classes_oop](../../study_archive/theory/14_classes_oop.md) |
+| 입력 파싱 | `re.fullmatch` 정규식으로 숫자 판별, 괄호·쉼표 입력 파싱(`_extract_numbers`) | - |
+| 데이터 분류 | 숫자가 아닌 입력은 분류해 별도 표시 | [03_data_types](../../study_archive/theory/03_data_types.md) |
+| 예외 상황 처리 | 나눗셈에 0이 포함되면 "계산불가" 표시 | [07_flow_control](../../study_archive/theory/07_flow_control.md) |
+| 출력 형식 | 소수 둘째 자리 반올림, 정수는 정수로 표시(`_format_value`) | [04_type_casting_io](../../study_archive/theory/04_type_casting_io.md) |
+| 이벤트 핸들러 | 삭제 버튼에 `lambda e, v=value:`로 항목별 이벤트 연결 | [08_functions](../../study_archive/theory/08_functions.md) |
+| 구조 비교 | 같은 기능을 함수 기반(`flet_calculator.py`)과 클래스 기반으로 구현 | [08_functions](../../study_archive/theory/08_functions.md), [14_classes_oop](../../study_archive/theory/14_classes_oop.md) |
+
+## 구현 결과 및 실행
+
+### 스크린샷
+
+<table>
+<tr><td align="center" valign="top"><img src="./images/input.png" width="420"><br><sub>데이터 입력 — 정수·음수·실수 6개(2, 342, -341, 3.41, 3.14, -94.5) 등록, 항목별 삭제 버튼</sub></td><td align="center" valign="top"><img src="./images/output.png" width="420"><br><sub>계산 결과 — 합계 -84.95, 차이 88.95, 곱 236007778.13, 나눗셈, 평균 -14.16, 최대 342, 최소 -341</sub></td></tr>
+</table>
+
+<details>
+<summary>스크린샷 더 보기</summary>
+
+<table>
+<tr><td align="center" valign="top"><img src="./images/home.png" width="420"><br><sub>홈 화면 — 숫자 입력창과 + 버튼, 빈 입력 목록, 계산하기·초기화 버튼, 결과 안내 문구</sub></td></tr>
+</table>
+
+</details>
+
+### 사용 기술
+
+Python, Flet, `re`
+
+### 개선 방향
+
+- 같은 값을 중복 입력한 경우 삭제 로직을 인덱스 기반으로 개선
+
+### 실행 방법
+
 ```bash
 pip install flet
-```
- 
-### 실행
-```bash
 python flet_calculator_class.py
 ```
- 
-## 📁 파일 구조
- 
-```
-number_data_handler/
-├── README.md
-├── flet_calculator_class.py
-└── images/
-    ├── home.png
-    ├── input.png
-    └── output.png
-```
- 
-## 🎮 사용 방법
- 
-1. **숫자 입력**
-   - "숫자를 입력하세요" 필드에 숫자 입력
-   - Enter 키 또는 "+" 버튼으로 추가
-2. **데이터 관리**
-   - 입력된 숫자는 좌측 리스트에 표시
-   - 각 항목의 휴지통 아이콘으로 삭제 가능
-3. **결과 계산**
-   - "계산하기" 버튼 클릭
-   - 우측에 7가지 통계 즉시 표시
-4. **초기화**
-   - "초기화" 버튼으로 모든 데이터 및 결과 삭제
+
+### 파일 구성
+
+- `flet_calculator_class.py`: 클래스 기반 버전
+- `flet_calculator.py`: 함수 기반 버전 (여러 줄 입력을 한 번에 계산)
+- `images/`: 스크린샷
