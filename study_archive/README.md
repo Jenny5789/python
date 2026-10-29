@@ -2,7 +2,7 @@
 
 Python 이론 · 자료구조 구현 아카이브
 
-## theory/
+## 📁 theory/
 
 파이썬 이론 노트. 전체 목차와 표기 규칙은 [theory/README.md](theory/README.md), 노트 스캔 이미지는 [theory/assets/](theory/assets/).
 
@@ -29,7 +29,7 @@ Python 이론 · 자료구조 구현 아카이브
 - [14_classes_oop.md](theory/14_classes_oop.md) - 클래스와 객체지향
 - [15_file_io_csv_excel.md](theory/15_file_io_csv_excel.md) - 파일 입출력, csv, 엑셀
 
-## data_structures/
+## 📁 data_structures/
 
 자료구조 구현. 파일별 주요 메서드는 [data_structures/README.md](data_structures/README.md).
 
