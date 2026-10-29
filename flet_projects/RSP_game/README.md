@@ -1,60 +1,60 @@
-# 🌸 봄날의 가위바위보 🌸
- 
-Flet으로 만든 5전 3승제 가위바위보 게임. 봄 테마의 벚꽃 디자인과 함께 컴퓨터와 경쟁합니다.
- 
-## 🎮 스크린샷
- 
-| 홈 | 재시작 | 라운드 진행 | 무승부 |
-|---|---|---|---|
-| ![](./images/home.png) | ![](./images/restart.png) | ![](./images/round4.png) | ![](./images/tie.png) |
- 
-| 컴퓨터 승리 | 사용자 승리 |
-|---|---|
-| ![](./images/comwin.png) | ![](./images/userwin.png) |
- 
-## 🎯 게임 규칙
- 
-- **방식**: 5전 3승제 (먼저 3승을 하는 쪽이 우승)
-- **조건**: 최대 5라운드 진행
-- **무승부**: 점수가 같으면 최종 무승부
-## ✨ 기능
- 
-- **게임 진행**: 가위, 바위, 보 선택하여 플레이
-- **점수 추적**: 현재 라운드와 누적 점수 표시
-- **실시간 결과**: 각 라운드 결과 즉시 표시
-- **최종 판정**: 3승 달성 또는 5라운드 완료 시 최종 우승자 결정
-- **게임 리셋**: 다시하기 버튼으로 새 게임 시작
-## 🛠️ 실행 방법
- 
-### 설치
+# Rock Paper Scissors
+
+Flet 기반 가위바위보 게임 (5판 3승제)
+
+## 프로젝트 소개
+
+- 조건 분기, 변수 스코프(`nonlocal`), 리스트·딕셔너리 이론을 상태 기반 게임 로직에 적용하기 위해 개발
+- 5판 3승제 승패 판정과 라운드 진행 로직을 GUI로 구현
+
+## 적용 이론 및 구현 내용
+
+**핵심 역량**: 상태 관리(`nonlocal`), 승패 판정 로직, 이벤트 처리
+
+| 역량 | 구현 내용 | 이론 |
+|---|---|---|
+| 상태 관리 | 점수·라운드를 `nonlocal`로 관리 | [06_import_namespace](../../study_archive/theory/06_import_namespace.md) |
+| 승패 판정 | `random.choice`와 조건문으로 판정 | [09_rps_game](../../study_archive/theory/09_rps_game.md), [07_flow_control](../../study_archive/theory/07_flow_control.md) |
+| 데이터 구성 | 선택지 리스트, 이모지 딕셔너리 | [03_data_types](../../study_archive/theory/03_data_types.md) |
+| 이벤트 처리 | 버튼 `data` 속성과 `e.control.data`로 선택값 전달 | [08_functions](../../study_archive/theory/08_functions.md) |
+| 코드 재사용 | `make_button()`으로 가위·바위·보 버튼 3개 생성 | [08_functions](../../study_archive/theory/08_functions.md) |
+| 진행 제어 | 3승 또는 5라운드 도달 시 최종 결과 표시, 다시하기로 상태 초기화 | [07_flow_control](../../study_archive/theory/07_flow_control.md) |
+| 레이아웃 | `Stack`으로 배경 위에 게임 카드 배치 | - |
+
+## 구현 결과 및 실행
+
+### 스크린샷
+
+<table>
+<tr><td align="center" valign="top"><img src="./images/home.png" width="420"><br><sub>홈 화면 — 1/5 라운드, 점수 0:0, 가위·바위·보 버튼, 5전 3승제 안내</sub></td><td align="center" valign="top"><img src="./images/userwin.png" width="420"><br><sub>사용자 승리 — 3승 도달 시 5라운드 전(4/5) 조기 종료, 최종 결과 표시</sub></td></tr>
+</table>
+
+<details>
+<summary>스크린샷 더 보기</summary>
+
+<table>
+<tr><td align="center" valign="top"><img src="./images/restart.png" width="420"><br><sub>다시하기 — 라운드·점수 초기화 후 "다시 시작합니다" 표시</sub></td><td align="center" valign="top"><img src="./images/round4.png" width="420"><br><sub>컴퓨터 승리(조기 종료) — 4/5 라운드에서 컴퓨터 3승 도달, 양측 선택·라운드 결과 표시</sub></td></tr>
+<tr><td align="center" valign="top"><img src="./images/tie.png" width="420"><br><sub>무승부 — 5/5 라운드 종료 시 2:2</sub></td><td align="center" valign="top"><img src="./images/comwin.png" width="420"><br><sub>컴퓨터 승리 — 5/5 라운드 종료 시 3:2</sub></td></tr>
+</table>
+
+</details>
+
+### 사용 기술
+
+Python, Flet, `random`
+
+### 개선 방향
+
+- 3승 도달 시 입력 잠금
+
+### 실행 방법
+
 ```bash
 pip install flet
+python flet_RSP_game.py
 ```
- 
-### 실행
-```bash
-python rock_paper_scissors.py
-```
- 
-## 📁 구조
- 
-```
-spring_game/
-├── README.md
-├── rock_paper_scissors.py
-└── images/
-    ├── home.png
-    ├── restart.png
-    ├── round4.png
-    ├── tie.png
-    ├── comwin.png
-    └── userwin.png
-```
-## 📝 게임 진행 예시
- 
-1. **1라운드**: 사용자 가위 vs 컴퓨터 보 → 사용자 승 (1:0)
-2. **2라운드**: 사용자 보 vs 컴퓨터 바위 → 컴퓨터 승 (1:1)
-3. **계속 진행...** 
-4. **최종**: 사용자 3승 달성 → 🌸 사용자 최종 우승!
----
- 
+
+### 파일 구성
+
+- `flet_RSP_game.py`: 전체 코드
+- `images/`: 스크린샷
