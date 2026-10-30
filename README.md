@@ -7,6 +7,7 @@
 - [📚 study_archive](#study)
 - [✏️ practice](#practice)
 - [🖥️ flet_projects](#flet)
+- [🧩 미니프로젝트](#mini)
 - [🪟 tkinter_examples](#tkinter)
 
 ---
@@ -69,6 +70,18 @@
 - [POS System](flet_projects/POS_system/): 편의점 POS·관리자 시스템 (SQLite 연동)
 - [Number Data Handler](flet_projects/Calculator/): 7종 연산·통계 계산 앱
 - [Bowling Score](flet_projects/Bowling_score/): 스트라이크·스페어 반영 점수 계산 앱
+
+---
+
+<a id="mini"></a>
+## 🧩 미니프로젝트
+
+독립 저장소로 만든 미니프로젝트 4개
+
+- [DFS-algorithm-maze](https://github.com/Jenny5789/DFS-algorithm-maze): 스택 직접 구현, DFS 미로 탐색 시각화 (Python, Flet)
+- [engineering_calculator](https://github.com/Jenny5789/engineering_calculator): 수식 전처리와 제한된 eval 기반 공학용 계산기 (Python, Flet)
+- [card_quiz](https://github.com/Jenny5789/card_quiz): 라인편집기 개념을 적용한 플래시카드 단어장 앱 (Dart, Flutter)
+- [todo_list](https://github.com/Jenny5789/todo_list): 그룹별 할 일 관리와 메모 (HTML, CSS, JavaScript)
 
 ---
 
