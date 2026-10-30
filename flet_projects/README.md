@@ -46,5 +46,4 @@ cd <프로젝트 폴더>
 python <실행 파일>
 ```
 
-- 개발 시 사용한 Flet 버전: (`pip show flet` 결과를 여기에 기입)
-- Flet은 버전에 따라 API 이름이 달라서, 위 버전으로 맞춰 설치 권장: `pip install flet==<버전>`
+- Flet은 버전에 따라 API 이름이 달라서, 실행이 안 되면 `pip install flet==<버전>`으로 버전을 맞춰 설치
