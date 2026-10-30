@@ -7,14 +7,14 @@
 
 <table>
 <tr>
-<td align="center" valign="bottom"><a href="up_down_game/"><img src="up_down_game/images/updown_correct.png" width="190"></a><br><sub>UP-DOWN Game</sub></td>
-<td align="center" valign="bottom"><a href="phonenumber_book/"><img src="phonenumber_book/images/home.png" width="90"></a><br><sub>Phonenumber Book</sub></td>
-<td align="center" valign="bottom"><a href="RSP_game/"><img src="RSP_game/images/userwin.png" width="110"></a><br><sub>Rock Paper Scissors</sub></td>
+<td align="center" valign="bottom"><a href="up_down_game/"><img src="up_down_game/images/updown_correct.png" width="130"></a><br><sub>UP-DOWN Game</sub></td>
+<td align="center" valign="bottom"><a href="phonenumber_book/"><img src="phonenumber_book/images/home.png" width="70"></a><br><sub>Phonenumber Book</sub></td>
+<td align="center" valign="bottom"><a href="RSP_game/"><img src="RSP_game/images/userwin.png" width="85"></a><br><sub>Rock Paper Scissors</sub></td>
 </tr>
 <tr>
-<td align="center" valign="bottom"><a href="POS_system/"><img src="POS_system/images/pos.png" width="280"></a><br><sub>POS System</sub></td>
-<td align="center" valign="bottom"><a href="Calculator/"><img src="Calculator/images/output.png" width="200"></a><br><sub>Number Data Handler</sub></td>
-<td align="center" valign="bottom"><a href="Bowling_score/"><img src="Bowling_score/images/no3.png" width="280"></a><br><sub>Bowling Score</sub></td>
+<td align="center" valign="bottom"><a href="POS_system/"><img src="POS_system/images/pos.png" width="190"></a><br><sub>POS System</sub></td>
+<td align="center" valign="bottom"><a href="Calculator/"><img src="Calculator/images/output.png" width="140"></a><br><sub>Number Data Handler</sub></td>
+<td align="center" valign="bottom"><a href="Bowling_score/"><img src="Bowling_score/images/no3.png" width="190"></a><br><sub>Bowling Score</sub></td>
 </tr>
 </table>
 

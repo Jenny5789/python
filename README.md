@@ -4,24 +4,10 @@
 
 ## 📌 목차
 
-- [🖥️ flet_projects](#flet)
 - [📚 study_archive](#study)
 - [✏️ practice](#practice)
+- [🖥️ flet_projects](#flet)
 - [🪟 tkinter_examples](#tkinter)
-
----
-
-<a id="flet"></a>
-## 🖥️ [flet_projects](flet_projects/)
-
-이론을 적용한 Flet 데스크탑 앱 6개
-
-- [UP-DOWN Game](flet_projects/up_down_game/): 숫자 맞추기 게임 (난수 비교, UP/DOWN 피드백)
-- [Phonenumber Book](flet_projects/phonenumber_book/): 연락처 추가·검색·조회·삭제 앱
-- [Rock Paper Scissors](flet_projects/RSP_game/): 5판 3승제 가위바위보 게임
-- [POS System](flet_projects/POS_system/): 편의점 POS·관리자 시스템 (SQLite 연동)
-- [Number Data Handler](flet_projects/Calculator/): 7종 연산·통계 계산 앱
-- [Bowling Score](flet_projects/Bowling_score/): 스트라이크·스페어 반영 점수 계산 앱
 
 ---
 
@@ -56,6 +42,33 @@
   - [분석 데이터](practice/pandas/data/): 에어코리아 측정 데이터(엑셀)
 - [codingtest](practice/codingtest/): 프로그래머스 코딩테스트 풀이 (Python3)
   - [2026_04](practice/codingtest/2026_04/), [2026_05](practice/codingtest/2026_05/)
+
+---
+
+<a id="flet"></a>
+## 🖥️ [flet_projects](flet_projects/)
+
+이론을 적용한 Flet 데스크탑 앱 6개
+
+<table>
+<tr>
+<td align="center" valign="bottom"><a href="flet_projects/up_down_game/"><img src="flet_projects/up_down_game/images/updown_correct.png" width="130"></a><br><sub>UP-DOWN Game</sub></td>
+<td align="center" valign="bottom"><a href="flet_projects/phonenumber_book/"><img src="flet_projects/phonenumber_book/images/home.png" width="70"></a><br><sub>Phonenumber Book</sub></td>
+<td align="center" valign="bottom"><a href="flet_projects/RSP_game/"><img src="flet_projects/RSP_game/images/userwin.png" width="85"></a><br><sub>Rock Paper Scissors</sub></td>
+</tr>
+<tr>
+<td align="center" valign="bottom"><a href="flet_projects/POS_system/"><img src="flet_projects/POS_system/images/pos.png" width="190"></a><br><sub>POS System</sub></td>
+<td align="center" valign="bottom"><a href="flet_projects/Calculator/"><img src="flet_projects/Calculator/images/output.png" width="140"></a><br><sub>Number Data Handler</sub></td>
+<td align="center" valign="bottom"><a href="flet_projects/Bowling_score/"><img src="flet_projects/Bowling_score/images/no3.png" width="190"></a><br><sub>Bowling Score</sub></td>
+</tr>
+</table>
+
+- [UP-DOWN Game](flet_projects/up_down_game/): 숫자 맞추기 게임 (난수 비교, UP/DOWN 피드백)
+- [Phonenumber Book](flet_projects/phonenumber_book/): 연락처 추가·검색·조회·삭제 앱
+- [Rock Paper Scissors](flet_projects/RSP_game/): 5판 3승제 가위바위보 게임
+- [POS System](flet_projects/POS_system/): 편의점 POS·관리자 시스템 (SQLite 연동)
+- [Number Data Handler](flet_projects/Calculator/): 7종 연산·통계 계산 앱
+- [Bowling Score](flet_projects/Bowling_score/): 스트라이크·스페어 반영 점수 계산 앱
 
 ---
 
