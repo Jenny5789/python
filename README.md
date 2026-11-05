@@ -109,13 +109,12 @@
 <a id="practice"></a>
 ## ✏️ [practice](practice/)
 
-기초 문법 연습, 데이터 분석, 코딩테스트 풀이
+기초 문법 연습, 코딩테스트 풀이
 
-| 폴더 | 내용 |
-|---|---|
-| [python_basics](practice/python_basics/) | 기초 문법 연습<br>[문자열 메서드 실습](practice/python_basics/20260322_strformat.ipynb) · [마트 상품 DB 구성](practice/python_basics/20260402_mart_db_TIL.ipynb) (중첩 딕셔너리로 상품 87개 생성) |
-| [pandas](practice/pandas/) | 에어코리아 대기오염 데이터를 pandas로 정리하고 matplotlib으로 시각화 (Colab)<br>[분석 노트북](practice/pandas/air_pollution_pandas.ipynb) · [분석 데이터](practice/pandas/data/) (엑셀) |
-| [codingtest](practice/codingtest/) | 프로그래머스 코딩테스트 풀이 (Python3)<br>[2026_04](practice/codingtest/2026_04/) · [2026_05](practice/codingtest/2026_05/) |
+1. [python_basics](practice/python_basics/) — 문자열 메서드, 마트 상품 DB 만들기
+2. [codingtest](practice/codingtest/) — 프로그래머스 문제 풀이 (2026년 4월, 5월)
+
+데이터 분석(pandas) 실습은 [Data_Analysis_Study](https://github.com/Jenny5789/Data_Analysis_Study/tree/main/pandas/korea_air_quality_analysis)로 옮겼습니다.
 
 ---
 
