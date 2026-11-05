@@ -5,7 +5,7 @@ Python 이론 · 자료구조 구현 · 소프트웨어공학 · 인공지능 �
 ## 📁 [파이썬 기초 이론 정리](theory/README.md)
 
 <details>
-<summary>목차 보기</summary>
+<summary>전체보기</summary>
 
 ### 기초 문법
 1. [파이썬 기초](theory/01_python_basics.md)
@@ -42,7 +42,7 @@ Python 이론 · 자료구조 구현 · 소프트웨어공학 · 인공지능 �
 ## 📁 [자료구조 구현](data_structures/README.md)
 
 <details>
-<summary>목차 보기</summary>
+<summary>전체보기</summary>
 
 ### 기본 자료구조
 1. [백(Bag) ADT](data_structures/00_bag.py)
@@ -75,7 +75,7 @@ Python 이론 · 자료구조 구현 · 소프트웨어공학 · 인공지능 �
 ## 📁 [소프트웨어공학 이론 정리](software_engineering/README.md)
 
 <details>
-<summary>목차 보기</summary>
+<summary>전체보기</summary>
 
 ### 개발 프로세스와 모델링
 1. [소프트웨어공학과 개발 프로세스](software_engineering/01_dev_process.md)
@@ -104,7 +104,7 @@ Python 이론 · 자료구조 구현 · 소프트웨어공학 · 인공지능 �
 ## 📁 [인공지능개론 이론 정리](artificial_intelligence/README.md)
 
 <details>
-<summary>목차 보기</summary>
+<summary>전체보기</summary>
 
 ### AI 개요와 개발 환경
 1. [AI 개요](artificial_intelligence/01_ai_basics.md)
