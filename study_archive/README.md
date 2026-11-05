@@ -4,6 +4,9 @@ Python 이론 · 자료구조 구현 · 소프트웨어공학 · 인공지능 �
 
 ## 📁 [파이썬 기초 이론 정리](theory/README.md)
 
+<details>
+<summary>목차 보기</summary>
+
 ### 기초 문법
 1. [파이썬 기초](theory/01_python_basics.md)
 2. [변수와 리터럴](theory/02_variables_literals.md)
@@ -32,9 +35,14 @@ Python 이론 · 자료구조 구현 · 소프트웨어공학 · 인공지능 �
     - [소수 판별](theory/11_algorithm_problems.md#4-소수-판별)
     - [볼링 점수 계산기](theory/11_algorithm_problems.md#5-볼링-점수-계산기)
 12. [장바구니·매출 시스템](theory/12_shopping_cart_sales_system.md)
+
+</details>
 </br></br>
 
 ## 📁 [자료구조 구현](data_structures/README.md)
+
+<details>
+<summary>목차 보기</summary>
 
 ### 기본 자료구조
 1. [백(Bag) ADT](data_structures/00_bag.py)
@@ -60,9 +68,14 @@ Python 이론 · 자료구조 구현 · 소프트웨어공학 · 인공지능 �
 15. [이진 트리 순회 (전위·중위·후위·레벨)](data_structures/tree.ipynb)
 16. [노드 개수, 단말 노드 개수, 높이](data_structures/tree.ipynb)
 17. [모르스 코드 결정 트리](data_structures/tree.ipynb)
+
+</details>
 </br></br>
 
 ## 📁 [소프트웨어공학 이론 정리](software_engineering/README.md)
+
+<details>
+<summary>목차 보기</summary>
 
 ### 개발 프로세스와 모델링
 1. [소프트웨어공학과 개발 프로세스](software_engineering/01_dev_process.md)
@@ -84,9 +97,14 @@ Python 이론 · 자료구조 구현 · 소프트웨어공학 · 인공지능 �
 ### 품질과 프로젝트 관리
 10. [품질](software_engineering/10_quality.md)
 11. [프로젝트 관리](software_engineering/11_project_management.md)
+
+</details>
 </br></br>
 
 ## 📁 [인공지능개론 이론 정리](artificial_intelligence/README.md)
+
+<details>
+<summary>목차 보기</summary>
 
 ### AI 개요와 개발 환경
 1. [AI 개요](artificial_intelligence/01_ai_basics.md)
@@ -99,3 +117,5 @@ Python 이론 · 자료구조 구현 · 소프트웨어공학 · 인공지능 �
 
 ### 컴퓨터 비전
 6. [CNN](artificial_intelligence/06_cnn.md)
+
+</details>
