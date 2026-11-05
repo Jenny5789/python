@@ -4,7 +4,7 @@
 
 ## 1. 컴퓨터 비전 (p.111 ~ 119)
 - CNN(Convolutional Neural Network, 합성곱 신경망): 영상 분야(컴퓨터 비전)에 특화
-- 컴퓨터가 보는 이미지 = 숫자 배열 → 사람처럼 분석 (예: 얼굴 분류 확률)
+- 컴퓨터가 보는 이미지 = 숫자 배열 → 사람처럼 분석 (예시: 얼굴 분류 확률)
 - 고차원 특징: 범주마다 중요한 특징 (얼굴 = 코·눈·입, 자동차 = 휠·번호판)
 - 전통 방식: 도메인 지식 → 사람이 특징 정의 (color, pattern) → 분류
   - 문제: 시점, 크기, 조명, 변형, 가림, 배경, 같은 범주 안의 다양성
@@ -13,11 +13,11 @@
 - 2D 이미지를 1차원 벡터로 펼쳐 입력 (1개 데이터 → 1개 입력)
 - Fully connected의 문제
   - **공간 정보 표현 안 됨** → 유의미한 정보가 없어짐
-    - 예) 2차원 사진을 1차원으로 바꾸면 눈·코 위치 표현이 어려움
+    - 예시: 2차원 사진을 1차원으로 바꾸면 눈·코 위치 표현이 어려움
 
 <img src="assets/06_flatten.png" width="380" alt="1차원으로 펼치면 위치 정보가 사라짐">
 
-  - 변수 수가 매우 많음
+  - 변수(파라미터) 수 과다
 - 해결: 이미지 안에서 filter로 sliding window 연산
 
 ## 3. 공간 정보 반영 (p.121 ~ 124)
@@ -25,7 +25,9 @@
 - **컨볼루션 연산**: 픽셀(2차원) × 가중치(2차원) → 같은 위치끼리 곱해서 더함 → 특징
 - CNN의 목적: 2D에서 2D 필터로 특징 뽑아내기
 - 활성화 함수를 쓰지 않는 층도 있음
-  - 보충: 합성곱 층 뒤에는 보통 ReLU 적용. 풀링 층, 회귀 문제의 출력층 등은 활성화 함수 없이 사용
+  - 보충
+    - 합성곱 층 뒤에는 일반적으로 ReLU 적용
+    - 풀링 층, 회귀 문제의 출력층 등은 활성화 함수 없이 사용
 - 특징 추출 과정
   1. 지역 특징을 위해 가중치 세트(Filter) 적용
   2. 다른 특징을 위해 필터 여러 개 사용
@@ -41,14 +43,14 @@
 <img src="assets/06_convolution.png" width="370" alt="컨볼루션 연산 예시">
 
 - 필터 예
-  | 필터 | 메모 |
+  | 필터 | 효과 |
   |---|---|
-  | Sharpen | 가운데 계수가 큼 → 비슷한 것끼리는 완만하게, 차이 큰 것은 sharp하게 |
-  | Edge Detect | 더 어두워지는 윤곽 찾기 |
+  | Sharpen | 가운데 계수가 큼<br>비슷한 값은 완만하게, 차이가 큰 값은 선명하게 |
+  | Edge Detect | 어두워지는 윤곽 검출 |
   | Strong Edge | 세로 방향 필터 |
 - 필터 크기
   - 가운데 연산 결과가 저장됨 → 필터가 홀수면 가운데가 생김
-  - 짝수면 원하는 위치가 달라질 수 있음
+  - 짝수면 중심이 없어 결과 위치가 어긋남
   - 컨볼루션 필터는 상하좌우 대칭으로 설정
 - 필터를 거치면 크기가 줄어듦 (끝 칸 값이 사라짐)
   - **Padding**: 처리 안 되는 가장자리를 어떻게 할지 결정 → 입력 size = 출력 size
@@ -62,7 +64,7 @@
   - 컨볼루션은 필터가 중요한가, 원하는 데이터가 중요한가?
 
 ## 5. CNN 구조 (p.128 ~ 131)
-- 학습 = 특징맵과 filter를 조절하는 것
+- 학습 = 특징맵과 필터(filter) 조절
 - 구성
   1. **컨볼루션**: 필터로 특징맵 생성
   2. **비선형**: ReLU(Rectified Linear Unit) 등 (edge 중 한쪽만 살림)
@@ -82,8 +84,8 @@ flowchart TD
     F["Flatten"] --> FC["Fully connected"] --> O["출력"]
   end
   FE --> CL
-  style FE fill:#F6F7F9,stroke:#9AA5B1,color:#111827
-  style CL fill:#F6F7F9,stroke:#9AA5B1,color:#111827
+  style FE fill:none,stroke:#9AA5B1,stroke-width:1.5px,color:#8A94A6
+  style CL fill:none,stroke:#9AA5B1,stroke-width:1.5px,color:#8A94A6
   linkStyle 5 stroke:#9AA5B1,stroke-width:4px
 ```
 
@@ -95,12 +97,12 @@ flowchart TD
 <img src="assets/06_receptive_field.png" width="380" alt="receptive field">
 
 - 출력 볼륨: h × w × d (d = 필터 개수)
-  - ※ PyTorch / TensorFlow는 (1, 32, 32, 1)처럼 차원 순서가 다름 → 순서 파악하기
+  - ※ PyTorch / TensorFlow는 (1, 32, 32, 1)처럼 차원 순서가 다름 → 순서 확인 필요
   - 보충: PyTorch는 (N, C, H, W), TensorFlow는 (N, H, W, C)
 - **스트라이드**: sliding window의 필터 이동 크기
 - **Pooling**
-  - 필터 겹침(overlap) 허용 안 함, 특징맵 크기를 줄임
-  - 평균·최대·최소 필터 사용 (예: 4×4 → 2×2 필터 → 2×2 출력)
+  - 필터 겹침(overlap) 없음, 특징맵 크기 축소
+  - 평균·최대·최소 필터 사용 (예시: 4×4 → 2×2 필터 → 2×2 출력)
   - 공간적 불변성
 
 <img src="assets/06_pooling.png" width="410" alt="최대 풀링과 평균 풀링">
@@ -109,7 +111,7 @@ flowchart TD
 - Conv layer 1 → 2 → 3: 선·점 → 눈·코 → 얼굴 구조
 - 특징 학습(Conv + ReLU + Pooling) 뒤 출력부를 바꾸면 여러 문제에 활용
   - Classification, Object detection, Segmentation, Probabilistic control
-  - 결과(출력층)를 바꾸면 YOLO(You Only Look Once) 같은 모델이 됨
+  - 출력층을 바꾸면 YOLO(You Only Look Once) 같은 모델로 확장
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '18px', 'primaryColor': '#E9EDF3', 'primaryBorderColor': '#1F3A5F', 'primaryTextColor': '#111827', 'lineColor': '#8A94A6', 'secondaryColor': '#F3F4F6', 'tertiaryColor': '#F3F4F6', 'clusterBkg': '#F6F7F9', 'clusterBorder': '#9AA5B1', 'edgeLabelBackground': '#E9EDF3'}, 'flowchart': {'nodeSpacing': 30, 'rankSpacing': 40}}}%%
@@ -145,12 +147,12 @@ flowchart TD
     D["Fully connected"] --> E["방향 후보 (확률)"] --> F["실제 결정"]
   end
   IN --> DE
-  style IN fill:#F6F7F9,stroke:#9AA5B1,color:#111827
-  style DE fill:#F6F7F9,stroke:#9AA5B1,color:#111827
+  style IN fill:none,stroke:#9AA5B1,stroke-width:1.5px,color:#8A94A6
+  style DE fill:none,stroke:#9AA5B1,stroke-width:1.5px,color:#8A94A6
   linkStyle 4 stroke:#9AA5B1,stroke-width:4px
 ```
 
 - ※ YOLO: 개념 정도는 알아 두기 (YOLOv1 2015, v2 2016, v3 2018)
 
 ## 참고
-- YOLO 구현 실습
+- YOLO 사전 학습 모델로 이미지 객체 탐지 실습

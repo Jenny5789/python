@@ -34,7 +34,7 @@ flowchart LR
 - 정규 기능 점수법: 구체화
 - 간이 기능 점수법: 대략적으로 산정
 - 단점: 내부 로직 위주 SW(Software, 소프트웨어)에 부적합
-  - 예) 버튼은 1개인데 기능은 여러 개
+  - 예시: 버튼은 1개인데 기능은 여러 개
 - 개발 규모 측정에 적합: 복잡도 반영에 적합
 - 애플리케이션 = 응용 제품
 - 측정 범위·경계 설정: 활용, 개발 측면
@@ -51,7 +51,7 @@ flowchart LR
 | **CPM**(Critical Path Method, 임계 경로 기법) | **확정적 소요 시간** (명확하게 정해진 경우) |
 - 작업을 합쳐 나가는 방식 ○○ ⇒ ○
 - 소요 기간: 개발자, 개발 환경에 따라 달라짐
-- B, C 작업: 병렬 ⇒ 동시 진행
+- B, C 작업: 병렬 수행
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '18px', 'primaryColor': '#E9EDF3', 'primaryBorderColor': '#1F3A5F', 'primaryTextColor': '#111827', 'lineColor': '#8A94A6', 'secondaryColor': '#F3F4F6', 'tertiaryColor': '#F3F4F6', 'clusterBkg': '#F6F7F9', 'clusterBorder': '#9AA5B1', 'edgeLabelBackground': '#E9EDF3'}, 'flowchart': {'nodeSpacing': 30, 'rankSpacing': 40}}}%%
@@ -66,7 +66,9 @@ flowchart LR
   linkStyle 4,5 stroke:#9AA5B1,stroke-width:3px,stroke-dasharray:6 4
 ```
 
-- 예시 (작업 4개 일정): 굵은 선 = 임계 경로 (A → B → D, 여유 시간 0) / 점선 = 여유 있는 작업 (C)
+- 예시 (작업 4개 일정)
+  - 굵은 선 = 임계 경로 (A → B → D, 여유 시간 0)
+  - 점선 = 여유 있는 작업 (C)
 
 ### ES · EF · LS · LF
 - **ES(Earliest Start) / EF(Earliest Finish)**: 가장 빨리 시작 / 끝
@@ -95,9 +97,9 @@ flowchart LR
 ```
 
 - 위험 매트릭스: 5단계 = 5척도
-  - 보충: 위험 매트릭스는 보통 발생 확률 × 영향도를 각각 5단계로 나눈 5×5 표
+  - 보충: 위험 매트릭스 = 발생 확률 × 영향도를 각각 5단계로 나눈 5×5 표 (일반적 형태)
 
 <img src="assets/03_risk_matrix.png" width="230" alt="위험 매트릭스">
 
 ## 참고
-- 초급·고급 프로그래머 생산성 차이 기준 자료 조사
+- 초급 · 고급 프로그래머 생산성 차이 기준 자료 조사 (비용 산정 시 적용 방식)

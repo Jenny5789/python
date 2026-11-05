@@ -21,8 +21,8 @@ flowchart TD
     C["축삭 돌기<br/>(Axon)"] --> D["축삭 말단"] --> E(("시냅스<br/>(Synapse)")) --> F["다음 뉴런"]
   end
   N1 --> N2
-  style N1 fill:#F6F7F9,stroke:#9AA5B1,color:#111827
-  style N2 fill:#F6F7F9,stroke:#9AA5B1,color:#111827
+  style N1 fill:none,stroke:#9AA5B1,stroke-width:1.5px,color:#8A94A6
+  style N2 fill:none,stroke:#9AA5B1,stroke-width:1.5px,color:#8A94A6
   linkStyle 4 stroke:#9AA5B1,stroke-width:4px
 ```
 
@@ -31,7 +31,8 @@ flowchart TD
   - 신경망 개념, 임계치 기반 전기 신호 전달
 - 가정
   - 뉴런은 활성 / 비활성 2가지 상태 → 반응 유무 2가지뿐 (이진 상태)
-  - 2개 이상 가지돌기가 일정 시간 **활성화**되어야 함 (1개는 결함일 수 있음, 2개 이상 = 유의미)
+  - 2개 이상 가지돌기가 일정 시간 **활성화**될 때 반응
+    - 1개 = 결함 가능성, 2개 이상 = 유의미한 신호
   - 시간 지연 = 가지돌기 사이 틈에서 전달하며 쌓임
   - 억제 가지돌기(-p)가 활성화를 막음 → 외부 신호 2개가 들어오면 활성화
   - 구조는 시간에 불변 → 반응 고정적
@@ -39,13 +40,16 @@ flowchart TD
 ## 3. 퍼셉트론 (p.61 ~ 62)
 - 로젠블라트 제시
 - **학습**으로 뉴런 간 연결 강도(가중치)를 조정
-  - 가중치 = 반응 강도(세기), 학습 data에 따라 가변적
+  - 가중치 = 반응 강도(세기), 학습 데이터에 따라 가변적
 - Σ: 입력 × 가중치를 더함 → 선형 표현
 
 <img src="assets/04_perceptron.png" width="250" alt="퍼셉트론 구조">
 
 - 한계: **비선형 문제**에 부적합
-  - 예) XOR(Exclusive OR, 배타적 논리합): (1,1), (0,0) → 0 / (1,0), (0,1) → 1 → 직선 하나로 못 나눔
+  - 예시: XOR(Exclusive OR, 배타적 논리합)
+    - (1,1), (0,0) → 0
+    - (1,0), (0,1) → 1
+    - → 직선 하나로 못 나눔
 - 해결: 퍼셉트론 여러 개를 연결 → 선형 여러 개가 곡선처럼 동작 → 문제 해결
 
 <img src="assets/04_xor.png" width="470" alt="AND와 XOR 비교">
@@ -69,7 +73,7 @@ flowchart TD
 - **순전파**: 입력 → 출력 방향 계산
 - **역전파**: 오차를 계산하며 출력 → 입력 방향으로 가중치 수정
   - 큰 가중치로 들어온 입력은 오차 책임도 크게 → 그만큼 낮춰서 계산
-  - layer가 많아지면 오차 전달이 약해짐 → 활성화 함수, 초기 가중치 설정을 잘해야 함
+  - layer가 많아지면 오차 전달이 약해짐 → 활성화 함수 · 초기 가중치 설정이 중요
 
 <img src="assets/04_ann_forward_backward.png" width="200" alt="신경망 구조와 순전파 역전파">
 
@@ -84,17 +88,18 @@ flowchart TD
   | 구분 | 상태 |
   |---|---|
   | Underfitting | 학습 부족 |
-  | Overfitting | 훈련 data에서는 성능 높음, 새 data에서는 성능 낮음 (복잡도·변수 증가, 일반화 성능 저하) |
+  | Overfitting | 훈련 데이터에서는 성능 높음, 새 데이터에서는 성능 낮음<br>복잡도·변수 증가 → 일반화 성능 저하 |
 
 <img src="assets/04_under_over_fitting.png" width="650" alt="Underfitting 적절 Overfitting 비교">
 
-- 학습 data로 학습, **검증 data**로 test 진행
-  - 학습 data는 좋은데 검증 data에서 떨어지기 시작하면 과적합 의심
+- 학습 데이터로 학습, **검증 데이터**로 테스트
+  - 학습 데이터 성능은 좋은데 검증 데이터 성능이 떨어지기 시작하면 과적합 의심
   - 바로 멈추지 말고 지켜보며 과적합인지 정상인지 판단
 
 ## 7. 딥러닝이 의미 있는 이유 (p.70 ~ 72)
 - 사람이 특징을 하나하나 설명하기 어려움 (시간, 처리, 확장)
-- 딥러닝은 데이터에서 **특징을 직접 학습** → CNN(Convolutional Neural Network, 합성곱 신경망)이 특징을 잘 잡음
+- 딥러닝은 데이터에서 **특징을 직접 학습**
+  - CNN(Convolutional Neural Network, 합성곱 신경망)이 특징 추출에 강함
   - 입력층 쪽: 선·모서리 → 중간: 눈·코 → 출력층 쪽: 얼굴 구조
 
 ```mermaid
@@ -105,4 +110,7 @@ flowchart LR
   A["입력"] --> B["저수준 특징<br/>선 · 모서리"] --> C["중간 수준 특징<br/>눈 · 코"] --> D["고수준 특징<br/>얼굴 구조"]
 ```
 
-- 지금 딥러닝에 집중하는 이유: 빅데이터, GPU(Graphics Processing Unit, 그래픽 처리 장치) 병렬 처리, 소프트웨어 발전
+- 지금 딥러닝에 집중하는 이유
+  - 빅데이터
+  - GPU(Graphics Processing Unit, 그래픽 처리 장치) 병렬 처리
+  - 소프트웨어 발전

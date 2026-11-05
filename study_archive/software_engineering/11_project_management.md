@@ -3,7 +3,8 @@
 > 참고: 소프트웨어공학 강의 자료 p.252 ~ 260 + 수업 필기
 
 ## 1. 프로젝트 (p.252)
-- PMI(Project Management Institute, 미국 프로젝트관리협회) 정의: 유일한 제품·서비스를 만들기 위해 **일정한 기간**을 정해 수행하는 작업
+- PMI(Project Management Institute, 미국 프로젝트관리협회) 정의
+  - 유일한 제품·서비스를 만들기 위해 **일정한 기간**을 정해 수행하는 작업
 - 특징
   - 한시성: 기간이 정해짐
   - 유일성: 결과물이 유일
@@ -29,10 +30,10 @@ flowchart LR
   A["시작"] --> B["기획"] --> C["실행"] <--> D["통제"] --> E["종료"]
 ```
 
-| 그룹 | 하는 일 | 메모 |
+| 그룹 | 하는 일 | 요약 |
 |---|---|---|
 | **시작** | 범위 관리 착수, 프로젝트 정의·승인 | 시작, 방향 제시 |
-| **기획** | 범위·작업·일정·위험·자원·비용 계획, 프로젝트 계획 문서화 | 구체적인 정의, 문서 |
+| **기획** | 범위·작업·일정·위험·자원·비용 계획, 프로젝트 계획 문서화 | 구체적 정의, 문서화 |
 | **실행** | 계획 실행 (품질 보증, 팀 개발, 정보 배포, 계약 관리) | |
 | **통제** | 진척 감시·성과 측정, 변경 통제 | 관리 |
 | **종료** | 계약 종료, 관리 종료 (완료 보고, 참조 사항 정리) | |
@@ -48,11 +49,11 @@ flowchart LR
 - 변경 관리: 업무 환경 변화(고객 요구, 시장, 예산·일정), 기술 환경 변화(하드웨어, OS)
 - 버전 관리: 버전별 정보를 DB(Database, 데이터베이스)로 관리
 
-| 절차 | 하는 일 | 메모 |
+| 절차 | 하는 일 | 부가 설명 |
 |---|---|---|
-| **형상 식별** | 형상 항목·식별자 규칙·베이스라인 선정 | 변경할 것을 찾음 → 변경 |
-| **형상 통제** | 변경 요청 → 심사 → 실시 → 확인 | 팀원 작업이 서로 연결되어 있어 변경은 요청 → 승인 절차를 거침 |
-| **형상 상태 보고** | 감사 일정·절차 정의, 감사, 보고서 작성 | 변경, 보고, 공유 |
+| **형상 식별** | 형상 항목·식별자 규칙·베이스라인 선정 | 변경 대상 식별 |
+| **형상 통제** | 변경 요청 → 심사 → 실시 → 확인 | 팀원 작업이 서로 연결되어 있음<br>→ 변경은 요청 → 승인 절차를 거침 |
+| **형상 상태 보고** | 감사 일정·절차 정의, 감사, 보고서 작성 | 변경 내용 보고 · 공유 |
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '18px', 'primaryColor': '#E9EDF3', 'primaryBorderColor': '#1F3A5F', 'primaryTextColor': '#111827', 'lineColor': '#8A94A6', 'secondaryColor': '#F3F4F6', 'tertiaryColor': '#F3F4F6', 'clusterBkg': '#F6F7F9', 'clusterBorder': '#9AA5B1', 'edgeLabelBackground': '#E9EDF3'}, 'flowchart': {'nodeSpacing': 30, 'rankSpacing': 70}}}%%
@@ -68,8 +69,8 @@ flowchart TD
     D["변경 요청"] --> E["심사"] --> F["실시"] --> G["확인"]
   end
   R1 --> R2
-  style R1 fill:#F6F7F9,stroke:#9AA5B1,color:#111827
-  style R2 fill:#F6F7F9,stroke:#9AA5B1,color:#111827
+  style R1 fill:none,stroke:#9AA5B1,stroke-width:1.5px,color:#8A94A6
+  style R2 fill:none,stroke:#9AA5B1,stroke-width:1.5px,color:#8A94A6
   linkStyle 5 stroke:#9AA5B1,stroke-width:4px
 ```
 

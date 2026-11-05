@@ -9,7 +9,7 @@
   - 코드, 자료구조, DB(Database, 데이터베이스) 구조, 테스트 결과, 단계별 문서, 사용자 매뉴얼
 
 ## 2. 소프트웨어 특징 (p.4)
-| 구분 | 의미 | 메모 |
+| 구분 | 의미 | 관점 |
 |---|---|---|
 | 제조 | **정해진 틀에 맞춰 일정하게** 제품 생산 | HW(Hardware, 하드웨어) 관점 |
 | 개발 | 목적 달성을 위해 **새로운 것을 만들거나 기존 기술 활용** | SW(Software, 소프트웨어) 관점 |
@@ -18,12 +18,12 @@
 
 ## 3. 소프트웨어 개발의 어려움 (p.5)
 - 소규모 → 대규모로 갈수록 도구, 과정, 전문 인력, 기간이 복잡해짐
-  - 예) 등본 발급: 동사무소 ⇒ 행복주민센터 (정보 조회, 인증, PDF 다운로드 등 복잡) + AI
+  - 예시: 등본 발급: 동사무소 ⇒ 행복주민센터 (정보 조회, 인증, PDF 다운로드 등 복잡) + AI
 
 ## 4. 소프트웨어공학 (p.6)
-- 공학: 한정된 **시간과 비용**(자원)으로 과학적 지식을 활용해 **문제를 해결**하는 것
+- 공학: 한정된 **시간과 비용**(자원)으로 과학적 지식을 활용한 **문제 해결**
 - 공학 원리: 각 방면의 요령, 노하우가 쌓임 ⇒ 그 집합 = SW 공학
-- SDLC(Software Development Life Cycle, 소프트웨어 개발 생명주기): 계획 → … → 유지보수
+- SDLC(Software Development Life Cycle, 소프트웨어 개발 생명주기): 계획 → 요구분석 → 설계 → 구현 → 테스트 → 유지보수
   - 마지막에 **폐기** 단계까지 포함
 
 ```mermaid
@@ -40,8 +40,8 @@ flowchart TD
     E["테스트"] --> F["유지보수"] --> G["폐기"]
   end
   R1 --> R2
-  style R1 fill:#F6F7F9,stroke:#9AA5B1,color:#111827
-  style R2 fill:#F6F7F9,stroke:#9AA5B1,color:#111827
+  style R1 fill:none,stroke:#9AA5B1,stroke-width:1.5px,color:#8A94A6
+  style R2 fill:none,stroke:#9AA5B1,stroke-width:1.5px,color:#8A94A6
   linkStyle 5 stroke:#9AA5B1,stroke-width:4px
 ```
 
@@ -63,21 +63,21 @@ flowchart TD
       A["활동 (Activity)"]
     end
   end
-  style P fill:#F6F7F9,stroke:#9AA5B1,color:#111827
-  style T fill:#F6F7F9,stroke:#9AA5B1,color:#111827
+  style P fill:none,stroke:#9AA5B1,stroke-width:1.5px,color:#8A94A6
+  style T fill:none,stroke:#9AA5B1,stroke-width:1.5px,color:#8A94A6
 ```
 
 - 개발 프로세스 = **사용자의 요구사항**을 시스템으로 구현하기 위한 일련의 활동
 
 ## 6. 개발 모델 비교 (p.8)
-| 모델 | 핵심 | 메모 |
+| 모델 | 핵심 | 특징 |
 |---|---|---|
-| 주먹구구식 (Build-and-fix) | **공식 가이드라인·프로세스 없이** 개발 | flowchart 등 없이 진행 |
+| 주먹구구식 (Build-and-fix) | **공식 가이드라인·프로세스 없이** 개발 | 순서도 등 설계 문서 없이 개발 |
 | 폭포수 (Waterfall) | 단계를 순서대로 진행 | 경직됨 |
 | V 모델 | 폭포수 변형, 개발 단계와 테스트 단계를 짝지음 | |
-| 프로토타입 | 간이 결과물을 만들며 반복 | 한 번에 완성 X ⇒ 수정해 나감 |
+| 프로토타입 | 간이 결과물을 만들며 반복 | 한 번에 완성하지 않고 반복 수정 |
 | 나선형 (Spiral) | 프로토타입 + **위험 분석** | |
-| 단계적 개발 | 나눠서 출시 | 출시 → 보완 → 개발 → 출시 … |
+| 단계적 개발 | 나눠서 출시 | 출시 → 보완 → 개발 → 재출시 반복 |
 | 통합 프로세스 (UP, Unified Process) | 도입 → 구체화 → 구축 → 전이 | |
 | 애자일 | 빠르게, 변경 수용 | 스크럼 등은 애자일 '컨셉'을 구현한 모델 |
 
@@ -128,9 +128,11 @@ flowchart LR
 
 - 장점: 의사소통 원활, 점진적 개발, 요구분석 명세서 작성에 도움
   - 유지보수 감소: 요구사항을 미리 확인해 후반 수정이 줄어듦
-  - 보충: 처음부터 다시 하는 것이 아니라 프로토타입 단계만 반복, 요구사항 확정 후 정식 개발로 넘어감
+  - 보충
+    - 처음부터 다시 하지 않고 프로토타입 단계만 반복
+    - 요구사항 확정 후 정식 개발로 넘어감
 - 단점: 범위 불분명
-  - 해결: **횟수 제한** 설정 (예: 자동차, 게임 캐릭터)
+  - 해결: **횟수 제한** 설정 (예시: 자동차, 게임 캐릭터)
 
 ## 10. 나선형 모델 (p.16 ~ 18)
 - 프로토타입 모델 + **위험 분석 단계**
@@ -152,7 +154,7 @@ flowchart LR
 - **중요한 서브시스템부터** 개발해 릴리스
   - 중요한 부분 = 필수, 메인
 - 장점: 사용자가 미리 써 보며 적응할 시간 확보
-- 단점: 요구사항이 바뀌면 최악의 경우 릴리스 2가 크게 커질 수 있음
+- 단점: 요구사항이 바뀌면 릴리스 2의 규모가 크게 늘어날 위험
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '18px', 'primaryColor': '#E9EDF3', 'primaryBorderColor': '#1F3A5F', 'primaryTextColor': '#111827', 'lineColor': '#8A94A6', 'secondaryColor': '#F3F4F6', 'tertiaryColor': '#F3F4F6', 'clusterBkg': '#F6F7F9', 'clusterBorder': '#9AA5B1', 'edgeLabelBackground': '#E9EDF3'}, 'flowchart': {'nodeSpacing': 30, 'rankSpacing': 40}}}%%
@@ -163,11 +165,11 @@ flowchart LR
 ```
 
 ## 12. 통합 프로세스 (p.20 ~ 22)
-| 단계 | 핵심 | 메모 |
+| 단계 | 핵심 | 주요 활동 |
 |---|---|---|
-| 도입 | 아이디어 | 비즈니스적으로 괜찮은가? 사용자에게 무엇이 필요한가? |
+| 도입 | 아이디어 | 사업 타당성 · 사용자 요구 파악 |
 | 구체화 | 아키텍처 | |
-| 구축 | 개발 | 요소 구현, 단위·통합 테스트, 사용자 매뉴얼 작성 → 취업과 직결되는 부분 |
+| 구축 | 개발 | 요소 구현, 단위·통합 테스트, 사용자 매뉴얼 작성<br>※ 취업과 직결되는 부분 |
 | 전이 | 창출, 출시 | |
 
 ```mermaid
@@ -205,8 +207,8 @@ flowchart TD
     C["스프린트 수행"] --> D["개발 완료"] --> E["완료 후"]
   end
   S1 --> S2
-  style S1 fill:#F6F7F9,stroke:#9AA5B1,color:#111827
-  style S2 fill:#F6F7F9,stroke:#9AA5B1,color:#111827
+  style S1 fill:none,stroke:#9AA5B1,stroke-width:1.5px,color:#8A94A6
+  style S2 fill:none,stroke:#9AA5B1,stroke-width:1.5px,color:#8A94A6
   linkStyle 3 stroke:#9AA5B1,stroke-width:4px
 ```
 
@@ -217,7 +219,7 @@ flowchart TD
   - 대화를 통해 **요구사항 도출**
 - 스프린트 구현 목록
   - SP: Sprint point (중요도)
-    - 보충: 보통 **Story Point**라고 함. 작업의 상대적인 크기·난이도
+    - 보충: 일반적으로 **Story Point**(작업의 상대적 크기·난이도)라고 부름
   - MD: Man-Day, 1일 단위
 - 소멸 차트(burn-down chart)
   - 실제 선이 계획선(점선)보다 **아래 = 계획보다 빠름**, **위 = 계획보다 느림**
@@ -229,4 +231,4 @@ flowchart TD
 - 단점: 작업을 효율적으로 하는지 파악 어려움 (주관적)
 
 ## 참고
-- 앞으로의 개인 계획을 스크럼(Scrum) 방식으로 수립
+- 개인 프로젝트 1개를 제품 백로그 · 스프린트 단위로 계획 (스크럼 방식)

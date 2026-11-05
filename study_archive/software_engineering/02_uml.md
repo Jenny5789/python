@@ -4,7 +4,7 @@
 
 ## 1. UML 개요 (p.35)
 - UML(Unified Modeling Language, 통합 모델링 언어): 시스템을 **시각적으로 볼 수 있게 나타낸 도면**
-  - 우선순위 등을 잘 뽑아내기 위함
+  - 목적: 우선순위 등을 명확히 도출
 - 종류: **구조 다이어그램 / 행위 다이어그램 / 상호작용 다이어그램**
 
 ```mermaid
@@ -35,7 +35,7 @@ flowchart LR
 - 수작업은 유스케이스 X
 - **최종 결과만** 나타냄
   - usecase가 usecase를 호출하는 경우 주의
-- 예: '수강관리' = 부적절 / '수강신청', '수강신청조회' = 적절
+- 예시: '수강관리' = 부적절 / '수강신청', '수강신청조회' = 적절
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '18px', 'primaryColor': '#E9EDF3', 'primaryBorderColor': '#1F3A5F', 'primaryTextColor': '#111827', 'lineColor': '#8A94A6', 'secondaryColor': '#F3F4F6', 'tertiaryColor': '#F3F4F6', 'clusterBkg': '#F6F7F9', 'clusterBorder': '#9AA5B1', 'edgeLabelBackground': '#E9EDF3'}, 'flowchart': {'nodeSpacing': 30, 'rankSpacing': 40}}}%%
@@ -52,7 +52,7 @@ flowchart LR
   ST --- U1
   ST --- U2
   PR --- U3
-  style SYS fill:#F6F7F9,stroke:#9AA5B1,color:#111827
+  style SYS fill:none,stroke:#9AA5B1,stroke-width:1.5px,color:#8A94A6
 ```
 
 - 예시 (수강관리 시스템): 액터(학생 · 교수)와 유스케이스를 실선으로 연결
@@ -72,7 +72,9 @@ flowchart LR
   - 일반화하지 않으면 가독성 저하 → 사용자 → 로그인으로 묶으면 단순해짐
 - **include**: 여러 유스케이스에 공통으로 들어가는 기능을 분리해 포함
   - 자료 예시: 바람직하지 않은 포함(로그인)
-  - 보충: 로그인은 기능이 아니라 대부분 기능의 선행 조건이라 include보다 선행 조건으로 표기하는 것이 바람직
+  - 보충
+    - 로그인은 기능이 아니라 대부분 기능의 선행 조건
+    - → include 대신 선행 조건으로 표기
 - **extend**: 부적절한 확장 예시(신청학점 제한)
   - 임의 사용자 ⇒ 접근 제한 필요
 
@@ -85,7 +87,9 @@ flowchart LR
   C(["신청학점 제한"]) -. "«extend»" .-> A
 ```
 
-- 예시: 수강신청은 학점 확인을 항상 포함(include), 신청학점 제한은 조건에 따라 수강신청을 확장(extend)
+- 예시
+  - 수강신청은 학점 확인을 항상 포함 (include)
+  - 신청학점 제한은 조건에 따라 수강신청을 확장 (extend)
 
 ## 4. 클래스 다이어그램과 가시성 (p.45, 53)
 | 기호 | 의미 | 접근 범위 |
@@ -109,7 +113,7 @@ classDiagram
 - 예시 (학생 클래스): `+` public, `-` private, `#` protected
 
 - 의존 관계 (개설과목관리 → 교과목관리)
-  - '포함되어 있다' 관계 표시, B는 A를 호출해야 함
+  - '포함되어 있다' 관계 표시, B가 A를 호출
 - 메뉴별 사용자
   - 성적등록, 교과목등록 = 교수
   - 개설과목등록 = 직원
@@ -135,7 +139,10 @@ sequenceDiagram
   E-->>S: 신청 결과
 ```
 
-- 예시 (수강신청): 실선 화살표 = 동기 호출(응답 대기), 열린 화살표 = 비동기 호출(응답 안 기다림), 점선 = 응답
+- 예시 (수강신청)
+  - 실선 화살표 = 동기 호출 (응답 대기)
+  - 열린 화살표 = 비동기 호출 (응답 안 기다림)
+  - 점선 = 응답
 
 - **통신 다이어그램**: 메시지로 객체 간 상호작용 표현
   - 한 프로젝트 안에서 여러 다이어그램을 함께 사용 가능
