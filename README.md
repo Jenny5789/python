@@ -85,17 +85,17 @@
 <br>
 
 <a id="practice"></a>
-## ✏️ practice
+## ✏️ practice &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sup><sub>2026.03 – 05</sub></sup>
 
 기초 문법 연습, 코딩테스트 풀이
 
 1. [python_basics](practice/python_basics/) — 문자열 메서드, 마트 상품 DB 만들기
-2. [codingtest](practice/codingtest/) — 프로그래머스 문제 풀이 (2026년 4월, 5월)
+2. [codingtest](practice/codingtest/) — 프로그래머스 문제 풀이
 
 <br>
 
 <a id="flet"></a>
-## 🖥️ flet_projects
+## 🖥️ flet_projects &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sup><sub>2026.03 – 04</sub></sup>
 
 이론을 적용한 Flet 데스크톱 앱 6개 (이벤트 처리 → 상태 관리 → 클래스 → DB 연동 순서)
 
@@ -109,7 +109,7 @@
 <br>
 
 <a id="mini"></a>
-## 🧩 Mini Projects
+## 🧩 Mini Projects &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sup><sub>2026.06</sub></sup>
 
 독립 저장소로 만든 미니프로젝트 4개 (Python · Flutter · JavaScript)
 
@@ -121,9 +121,9 @@
 <br>
 
 <a id="colab"></a>
-## 🗒️ colab
+## 🗒️ colab &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sup><sub>2026.03 – 04</sub></sup>
 
-Google Colab에서 작성한 파이썬 수업 실습 노트북 8개 (2026년 3월부터 4월까지)
+Google Colab에서 작성한 파이썬 수업 실습 노트북 8개
 
 <details>
 <summary><b>목록 보기</b></summary>
@@ -142,9 +142,9 @@ Google Colab에서 작성한 파이썬 수업 실습 노트북 8개 (2026년 3�
 <br>
 
 <a id="tkinter"></a>
-## 🪟 tkinter_examples
+## 🪟 tkinter_examples &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sup><sub>2026.03</sub></sup>
 
-tkinter 기본 위젯과 이벤트 처리 방식 학습 (2026년 3월)
+tkinter 기본 위젯과 이벤트 처리 방식 학습
 
 <details>
 <summary><b>목록 보기</b></summary>
