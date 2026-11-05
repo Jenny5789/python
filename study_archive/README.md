@@ -24,6 +24,14 @@ Python 이론 · 자료구조 구현 · 인공지능 · 소프트웨어공학 �
 | [07_flow_control.md](theory/07_flow_control.md) | if, for, while, 리스트 컴프리헨션 |
 | [08_functions.md](theory/08_functions.md) | 함수, lambda, 타입 힌트 |
 
+### 예외, 클래스, 파일
+
+| 파일 | 내용 |
+|---|---|
+| [13_exceptions.md](theory/13_exceptions.md) | 예외 처리 |
+| [14_classes_oop.md](theory/14_classes_oop.md) | 클래스와 객체지향 |
+| [15_file_io_csv_excel.md](theory/15_file_io_csv_excel.md) | 파일 입출력, csv, 엑셀 |
+
 ### 문제 풀이와 실습
 
 | 파일 | 내용 |
@@ -32,14 +40,6 @@ Python 이론 · 자료구조 구현 · 인공지능 · 소프트웨어공학 �
 | [10_practice.md](theory/10_practice.md) | 약수 구하기, 업다운 게임 |
 | [11_algorithm_problems.md](theory/11_algorithm_problems.md) | 정렬, 비밀번호 검증, 소수, 볼링 점수 |
 | [12_shopping_cart_sales_system.md](theory/12_shopping_cart_sales_system.md) | 장바구니, 매출 시스템 설계 |
-
-### 예외, 클래스, 파일
-
-| 파일 | 내용 |
-|---|---|
-| [13_exceptions.md](theory/13_exceptions.md) | 예외 처리 |
-| [14_classes_oop.md](theory/14_classes_oop.md) | 클래스와 객체지향 |
-| [15_file_io_csv_excel.md](theory/15_file_io_csv_excel.md) | 파일 입출력, csv, 엑셀 |
 
 ## 📁 data_structures
 
