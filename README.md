@@ -1,4 +1,4 @@
-# 🐍 Python Learning
+# Python
 
 파이썬 이론부터 GUI 앱, 미니프로젝트까지 공부한 과정을 모은 저장소입니다.
 
