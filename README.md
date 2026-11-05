@@ -140,16 +140,14 @@ Google Colab 환경에서 작성한 파이썬 수업 실습 노트북 모음 (20
 <a id="flet"></a>
 ## 🖥️ [flet_projects](flet_projects/)
 
-이론을 적용한 Flet 데스크탑 앱 6개
+이론을 적용한 Flet 데스크톱 앱 6개 (이벤트 처리 → 상태 관리 → 클래스 → DB 연동 순서)
 
-| 프로젝트 | 한 줄 소개 | 핵심 기술 |
-|---|---|---|
-| [UP-DOWN Game](flet_projects/up_down_game/) | 숫자 맞추기 게임 (UP/DOWN 피드백) | 난수 비교, 이벤트 처리 |
-| [Phonenumber Book](flet_projects/phonenumber_book/) | 연락처 추가·검색·조회·삭제 앱 | 클래스, 딕셔너리 |
-| [Rock Paper Scissors](flet_projects/RSP_game/) | 5판 3승제 가위바위보 게임 | 상태 관리(`nonlocal`), 승패 판정 |
-| [POS System](flet_projects/POS_system/) | 편의점 POS·관리자 시스템 | SQLite, 집계 쿼리 |
-| [Number Data Handler](flet_projects/Calculator/) | 7종 연산·통계 계산 앱 | 정규식 파싱, 함수형·클래스형 비교 |
-| [Bowling Score](flet_projects/Bowling_score/) | 스트라이크·스페어 반영 점수 계산 앱 | 점수 계산 알고리즘, 버튼 상태 제어 |
+1. [UP-DOWN Game](flet_projects/up_down_game/) — 숫자 맞추기 게임
+2. [Rock Paper Scissors](flet_projects/RSP_game/) — 5판 3승제 가위바위보 게임
+3. [Phonenumber Book](flet_projects/phonenumber_book/) — 연락처 추가 · 검색 · 조회 · 삭제 앱
+4. [Number Data Handler](flet_projects/Calculator/) — 7종 연산 · 통계 계산 앱
+5. [Bowling Score](flet_projects/Bowling_score/) — 스트라이크 · 스페어 반영 점수 계산 앱
+6. [POS System](flet_projects/POS_system/) — 편의점 POS · 관리자 시스템
 
 ---
 
