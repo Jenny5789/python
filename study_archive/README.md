@@ -1,110 +1,101 @@
 # 📚 Study Archive
 
-Python 이론 · 자료구조 구현 · 인공지능 · 소프트웨어공학 이론 아카이브
+Python 이론 · 자료구조 구현 · 소프트웨어공학 · 인공지능 이론 아카이브
 
-## 📁 theory
-
-파이썬 이론 노트. 전체 목차와 표기 규칙은 [theory/README.md](theory/README.md), 노트 스캔 이미지는 [theory/assets/](theory/assets/).
+## 📁 [파이썬 기초 이론 정리](theory/README.md)
 
 ### 기초 문법
-
-| 파일 | 내용 |
-|---|---|
-| [01_python_basics.md](theory/01_python_basics.md) | 특징, 키워드, 식별자, 들여쓰기, 주석 |
-| [02_variables_literals.md](theory/02_variables_literals.md) | 변수, 상수, 리터럴, None |
-| [03_data_types.md](theory/03_data_types.md) | 숫자, list, tuple, set, dict, 복사 |
-| [04_type_casting_io.md](theory/04_type_casting_io.md) | 형변환, print, format, input |
-| [05_operators.md](theory/05_operators.md) | 연산자 |
-| [06_import_namespace.md](theory/06_import_namespace.md) | import, 모듈, 네임스페이스 |
+1. [파이썬 기초](theory/01_python_basics.md)
+2. [변수와 리터럴](theory/02_variables_literals.md)
+3. [자료형](theory/03_data_types.md)
+4. [형변환과 입출력](theory/04_type_casting_io.md)
+5. [연산자](theory/05_operators.md)
+6. [import와 네임스페이스](theory/06_import_namespace.md)
 
 ### 흐름 제어와 함수
-
-| 파일 | 내용 |
-|---|---|
-| [07_flow_control.md](theory/07_flow_control.md) | if, for, while, 리스트 컴프리헨션 |
-| [08_functions.md](theory/08_functions.md) | 함수, lambda, 타입 힌트 |
+7. [흐름 제어](theory/07_flow_control.md)
+8. [함수](theory/08_functions.md)
 
 ### 예외, 클래스, 파일
-
-| 파일 | 내용 |
-|---|---|
-| [13_exceptions.md](theory/13_exceptions.md) | 예외 처리 |
-| [14_classes_oop.md](theory/14_classes_oop.md) | 클래스와 객체지향 |
-| [15_file_io_csv_excel.md](theory/15_file_io_csv_excel.md) | 파일 입출력, csv, 엑셀 |
+13. [예외 처리](theory/13_exceptions.md)
+14. [클래스와 객체지향](theory/14_classes_oop.md)
+15. [파일 입출력 (csv, 엑셀)](theory/15_file_io_csv_excel.md)
 
 ### 문제 풀이와 실습
+9. [가위바위보 게임](theory/09_rps_game.md)
+10. [연습 문제](theory/10_practice.md)
+    - [약수 구하기](theory/10_practice.md#1-약수-구하기)
+    - [업다운 게임](theory/10_practice.md#2-업다운-게임)
+11. [알고리즘 문제](theory/11_algorithm_problems.md)
+    - [숫자 정렬 (3개 → N개)](theory/11_algorithm_problems.md#2-숫자-3개-정렬---n개로-일반화)
+    - [비밀번호 검증](theory/11_algorithm_problems.md#3-비밀번호-검증)
+    - [소수 판별](theory/11_algorithm_problems.md#4-소수-판별)
+    - [볼링 점수 계산기](theory/11_algorithm_problems.md#5-볼링-점수-계산기)
+12. [장바구니·매출 시스템](theory/12_shopping_cart_sales_system.md)
+</br></br>
 
-| 파일 | 내용 |
-|---|---|
-| [09_rps_game.md](theory/09_rps_game.md) | 가위바위보 게임 설계 |
-| [10_practice.md](theory/10_practice.md) | 약수 구하기, 업다운 게임 |
-| [11_algorithm_problems.md](theory/11_algorithm_problems.md) | 정렬, 비밀번호 검증, 소수, 볼링 점수 |
-| [12_shopping_cart_sales_system.md](theory/12_shopping_cart_sales_system.md) | 장바구니, 매출 시스템 설계 |
-
-## 📁 data_structures
-
-자료구조 구현. 파일별 주요 메서드는 [data_structures/README.md](data_structures/README.md).
+## 📁 [자료구조 구현](data_structures/README.md)
 
 ### 기본 자료구조
-
-| 파일 | 내용 |
-|---|---|
-| [00_bag.py](data_structures/00_bag.py) | 백(Bag) ADT |
-| [01_list.py](data_structures/01_list.py) | 리스트 ADT |
-| [02_line_editor.py](data_structures/02_line_editor.py) | 줄 편집기 |
-| [03_set.py](data_structures/03_set.py) | 집합(Set) ADT |
-| [data_structure_list.py](data_structures/data_structure_list.py) | 배열 구조 리스트, 연결된 구조 리스트 |
+1. [백(Bag) ADT](data_structures/00_bag.py)
+2. [리스트 ADT](data_structures/01_list.py)
+3. [줄 편집기](data_structures/02_line_editor.py)
+4. [집합(Set) ADT](data_structures/03_set.py)
+5. [배열 구조 리스트](data_structures/data_structure_list.py#L5)
+6. [연결된 구조 리스트](data_structures/data_structure_list.py#L122)
 
 ### 스택과 큐
-
-| 파일 | 내용 |
-|---|---|
-| [04_stack.py](data_structures/04_stack.py) | 스택 ADT |
-| [06_queue.py](data_structures/06_queue.py) | 선형 큐 ADT, 원형 큐 ADT |
-| [08_deque.py](data_structures/08_deque.py) | 덱(Deque) ADT |
-| [09_priorityqueue.py](data_structures/09_priorityqueue.py) | 우선순위 큐 ADT |
+7. [스택 ADT](data_structures/04_stack.py)
+8. [선형 큐 ADT](data_structures/06_queue.py#L1)
+9. [원형 큐 ADT](data_structures/06_queue.py#L160)
+10. [덱(Deque) ADT](data_structures/08_deque.py)
+11. [우선순위 큐 ADT](data_structures/09_priorityqueue.py)
 
 ### 미로 탐색
-
-| 파일 | 내용 |
-|---|---|
-| [05_DFS.py](data_structures/05_DFS.py) | 스택을 이용한 미로 탐색 (깊이 우선 탐색) |
-| [07_BFS.py](data_structures/07_BFS.py) | 원형 큐를 이용한 미로 탐색 (너비 우선 탐색) |
-| [10_maze.py](data_structures/10_maze.py) | 우선순위 큐를 이용한 미로 탐색 |
+12. [스택을 이용한 미로 탐색 (DFS)](data_structures/05_DFS.py)
+13. [원형 큐를 이용한 미로 탐색 (BFS)](data_structures/07_BFS.py)
+14. [우선순위 큐를 이용한 미로 탐색](data_structures/10_maze.py)
 
 ### 트리
+15. [이진 트리 순회 (전위·중위·후위·레벨)](data_structures/tree.ipynb)
+16. [노드 개수, 단말 노드 개수, 높이](data_structures/tree.ipynb)
+17. [모르스 코드 결정 트리](data_structures/tree.ipynb)
+</br></br>
 
-| 파일 | 내용 |
-|---|---|
-| [tree.ipynb](data_structures/tree.ipynb) | 이진 트리 (순회, 노드 개수, 높이, 모르스 코드 결정 트리) |
+## 📁 [소프트웨어공학 이론 정리](software_engineering/README.md)
 
-## 📁 artificial_intelligence
+### 개발 프로세스와 모델링
+1. [소프트웨어공학과 개발 프로세스](software_engineering/01_dev_process.md)
+2. [UML](software_engineering/02_uml.md)
 
-인공지능개론 이론 노트. 전체 목차와 표기 규칙은 [artificial_intelligence/README.md](artificial_intelligence/README.md), 그림은 [artificial_intelligence/assets/](artificial_intelligence/assets/).
+### 계획과 요구분석
+3. [계획](software_engineering/03_planning.md)
+4. [요구분석](software_engineering/04_requirements.md)
 
-| 파일 | 내용 |
-|---|---|
-| [01_ai_basics.md](artificial_intelligence/01_ai_basics.md) | 지능, AI 정의·역사·접근법·종류, 튜링 테스트, 중국어 방, 장단점 |
-| [02_dl_environment.md](artificial_intelligence/02_dl_environment.md) | OS·하드웨어(CPU/GPU/TPU), 가상환경, IDE, 언어, 딥러닝 프레임워크 |
-| [03_machine_learning.md](artificial_intelligence/03_machine_learning.md) | AI·ML·DL, ML 흐름, 지도·비지도·준지도·강화학습 |
-| [04_neural_network.md](artificial_intelligence/04_neural_network.md) | 뉴런, MP 모델, 퍼셉트론, ANN, DNN, 순전파·역전파, 과적합 |
-| [05_perceptron_training.md](artificial_intelligence/05_perceptron_training.md) | 활성화 함수, 손실 함수, 경사 하강법, 학습률, 미니 배치, 드롭아웃, 데이터 라벨링 |
-| [06_cnn.md](artificial_intelligence/06_cnn.md) | 컴퓨터 비전, 컨볼루션, 패딩, 풀링, receptive field, CNN 활용, YOLO |
+### 설계
+5. [설계](software_engineering/05_design.md)
+6. [아키텍처 설계와 클래스 설계](software_engineering/06_architecture_class.md)
+7. [디자인 패턴](software_engineering/07_design_patterns.md)
 
-## 📁 software_engineering
+### 구현과 테스트
+8. [구현 (표준 코딩 규칙)](software_engineering/08_coding_rules.md)
+9. [테스트](software_engineering/09_testing.md)
 
-소프트웨어공학 이론 노트. 전체 목차와 표기 규칙은 [software_engineering/README.md](software_engineering/README.md), 그림은 [software_engineering/assets/](software_engineering/assets/).
+### 품질과 프로젝트 관리
+10. [품질](software_engineering/10_quality.md)
+11. [프로젝트 관리](software_engineering/11_project_management.md)
+</br></br>
 
-| 파일 | 내용 |
-|---|---|
-| [01_dev_process.md](software_engineering/01_dev_process.md) | 소프트웨어공학, SDLC, 폭포수·V·프로토타입·나선형·통합 프로세스, 애자일, 스크럼 |
-| [02_uml.md](software_engineering/02_uml.md) | 액터, 유스케이스, 클래스·순차·통신·활동·상태·배치 다이어그램 |
-| [03_planning.md](software_engineering/03_planning.md) | 비용 산정(델파이, LOC, COCOMO, 기능 점수), WBS, PERT/CPM, 위험 관리 |
-| [04_requirements.md](software_engineering/04_requirements.md) | 기능·비기능 요구사항, 자료 사전, E-R, 유스케이스 명세서, 요구사항 문서화 |
-| [05_design.md](software_engineering/05_design.md) | 설계 원리(분할·추상화·캡슐화·정보 은닉·상속·다형성), 모듈화, 응집도, 결합도, UI 설계 |
-| [06_architecture_class.md](software_engineering/06_architecture_class.md) | 아키텍처 품질 속성, 4+1 관점, 아키텍처 스타일, 클래스 관계, SOLID |
-| [07_design_patterns.md](software_engineering/07_design_patterns.md) | GoF 패턴: strategy, decorator, adapter, factory method, singleton |
-| [08_coding_rules.md](software_engineering/08_coding_rules.md) | 표준 코딩 규칙: 명칭, 소스, 주석, 변수·상수, 수식·문장 |
-| [09_testing.md](software_engineering/09_testing.md) | 테스트 절차, 정적·동적 테스트, 블랙박스·화이트박스 기법, 단위·통합·회귀 테스트 |
-| [10_quality.md](software_engineering/10_quality.md) | 품질 정의, McCall, ISO/IEC 9126·14598·12119·25000, ISO 9000·12207, CMMI, SPICE |
-| [11_project_management.md](software_engineering/11_project_management.md) | PM 역할, PMBOK, 형상 관리, 유지보수 |
+## 📁 [인공지능개론 이론 정리](artificial_intelligence/README.md)
+
+### AI 개요와 개발 환경
+1. [AI 개요](artificial_intelligence/01_ai_basics.md)
+2. [딥러닝 환경](artificial_intelligence/02_dl_environment.md)
+
+### 머신러닝과 신경망
+3. [AI · ML · DL과 머신러닝](artificial_intelligence/03_machine_learning.md)
+4. [신경망 기초](artificial_intelligence/04_neural_network.md)
+5. [퍼셉트론과 신경망 학습](artificial_intelligence/05_perceptron_training.md)
+
+### 컴퓨터 비전
+6. [CNN](artificial_intelligence/06_cnn.md)

@@ -2,9 +2,7 @@
 
 > 이미지: [note_49](assets/note_49_object_class_custom_exception.jpg) · [note_50](assets/note_50_class_method_inheritance_super.jpg) · [note_51](assets/note_51_overloading_overriding_multiple_inheritance.jpg) · [note_52](assets/note_52_polymorphism_complexnumber_polygon.jpg) · [note_47](assets/note_47_calculator_min_max_avg_class.jpg) · [note_38](assets/note_38_deep_copy_nested.jpg) · [note_54](assets/note_54_excel_pandas_class_method.jpg) · [note_55](assets/note_55_csv_module_dictreader.jpg)
 
-> 순서 안내: 클래스 수업은 note_55(4/15 특강 표기)에서 시작해 note_49 -> 50 -> 51 -> 52로 이어지는 것으로 보이나 날짜가 없는 페이지가 많아 `[추정]`임.
-
-## 1. 클래스란? (note_55, 4/15)
+## 1. 클래스란?
 - 클래스 = 속성 + 메서드 (속성: 변수, 메서드: 함수)
 - 절차는 개발자가 각성(각자 설계)해서 획일적이지 않다. 객체지향 방식 구현
 - 방식 비교
@@ -13,7 +11,7 @@
   - 객체지향: 클래스로 속성과 메서드를 묶어서 설계
 - 노트 문구: "의도를 생각하자 (코드를 어떻게 작성해야 할지 등). 예) 왜 `{ }`를 사용하는지"
 
-## 2. 객체지향 프로그래밍 개념 (note_49)
+## 2. 객체지향 프로그래밍 개념
 - OOP (Object-Oriented Programming) <-> 절차지향 (순차적으로 진행)
 - 틀(class)을 만들어서 공유해서(반복해서) 사용 -> 일정함. 틀은 공유, 결과물(객체)은 각각 고유함
 - class = 설계도(틀, 붕어빵 틀 같은 것) / 객체 = 결과물 (예: Red, Green 차량 옵션 -> 특성 적용)
@@ -26,7 +24,7 @@
 - 예: 사과 = Class, 사과1, 사과2, 사과3 = 인스턴스(object)
 - 예: 게임 캐릭터
 
-## 3. 클래스 정의, `__init__`, self, 속성 (note_49)
+## 3. 클래스 정의, `__init__`, self, 속성
 - `class Human:` 안의 변수
   - 클래스 속성(class attribute): 공통 특성이 있을 때 작성 (필수 아님). 예 `species = "Human"` -> 각각 같은 값
   - 인스턴스 속성(instance attribute): 각각의 특성 -> 각각 다른 값 (예 `name`, `age`)
@@ -47,7 +45,7 @@ print(kim.species, kim.name, lee.name)   # Human kim lee
 print(kim.species is lee.species)        # True (같은 class attribute)
 ```
 
-## 4. 메서드 (note_50)
+## 4. 메서드
 - method: class에 정의되어 있는 함수. `#instance method`
 - 자기 자신을 참조하는 변수임을 알려야 하기 때문에 `self.name`을 사용
 - `Human.dance(kim)`처럼 클래스 이름으로도 호출 가능 (노트: "Human.dance( )도 가능하다")
@@ -71,7 +69,7 @@ print(kim.sing("HAPPY"))        # kim sings HAPPY
 print(Human.dance(kim))         # kim is dancing  (클래스 이름으로 호출)
 ```
 
-## 5. 상속 (Inheritance) (note_50)
+## 5. 상속 (Inheritance)
 - class는 "template": 많은 사람들이 가져다 이용 가능 + 필요에 따라 수정/변경 가능
 - 상속: 공통적인 것을 뽑아 class로 만들고, 상속받는 것으로 많이 만들어 사용 -> 유지보수가 편해짐. 노트: "Class의 꽃 = 상속!!!"
 - 부모 class의 속성, 메서드를 자식 class가 쓸 수 있음 (= 자식은 부모를 사용할 수 있다). 부모 class는 미리 선언되어 있어야 함
@@ -104,9 +102,9 @@ peggy.swim()                        # 부모의 메서드를 그대로 사용
 ```
 - 출력: `Bird is ready`, `Penguin is ready`, `Penguin`, `Swim faster`
 
-## 6. 캡슐화 (Encapsulation) (note_50)
+## 6. 캡슐화 (Encapsulation)
 - method, 변수에 대한 접근 제한 / 직접적인 데이터 수정 방지 (class를 만든 쪽에서는 외부에서 변경/접근 못 하게)
-- `self.__maxprice = 900`: 밑줄 두 개는 "클래스 내부에서만 사용할 거야"라는 뜻 (내부용, note_54)
+- `self.__maxprice = 900`: 밑줄 두 개는 "클래스 내부에서만 사용할 거야"라는 뜻 (내부용)
 - 노트 정리
   1. 위치가 클래스 내부이면 변경 가능
   2. 위치가 클래스 밖이면 항상 900 (밖에서 `__maxprice = 1000`을 써도 안 바뀜)
@@ -132,7 +130,7 @@ c.sell()                  # Selling Price: 1000
 ```
 - 보충: `__maxprice`는 이름이 `_Computer__maxprice`로 바뀌는 방식이라 `c.__maxprice = 1000`은 에러가 아니라 새 속성이 하나 더 생기는 것
 
-## 7. 다중상속 (note_51)
+## 7. 다중상속
 - 여러 부모를 한 번에 상속받는 구조 (그림 왼쪽: 부모 2개 -> 자식 1개)
 - 그림 오른쪽: 단계 상속 (부모 -> 자식 -> 손자). 노트: "형식을 (자주) 사용한다 (현실적인 방법)", 예 GREEN -> GOLD -> VIP
 
@@ -161,7 +159,7 @@ class VIP(Gold): pass
 print(issubclass(VIP, Green))       # True
 ```
 
-## 8. 특수 함수와 오버로딩 (Overloading) (note_51)
+## 8. 특수 함수와 오버로딩 (Overloading)
 - 특수 함수: underscore 두 개(`__`)로 시작하는 함수. 의도하지 않아도 동작하는 함수, 필요할 때 알아서 호출됨
 - `p1 + p2`에 있는 `+`는 class 함수에 저장되어 있는 특수 함수 `__add__` (노트: "특수 함수 사용 -> 너무 추천")
 - 오버로딩(overloading): 같은 연산자가 상황에 따라 다르게 동작 (노트: "상황에 따라 합쳐?")
@@ -186,7 +184,7 @@ print(Point.__add__(p1, p2))           # (3, 5)  위와 같은 호출
 ```
 - 보충: 파이썬은 Java처럼 매개변수 개수만 다른 메서드를 여러 개 정의하는 오버로딩은 없고, 연산자 오버로딩(`__add__` 등)이 위의 의미
 
-## 9. 오버라이딩 (Overriding) (note_51)
+## 9. 오버라이딩 (Overriding)
 - 부모 class `A`의 메서드 `A1`을, 자식 class `B(A)`에서 같은 이름 `A1`로 다시 정의 -> 자식의 `A1`이 부모를 덮어쓰기 (= 부모 자원, 자식 새로 선언)
 - "부모 선언 -> 자식에서 재세팅! (공통으로 사용 -> 자식들이 많이 다르게 사용함)"
 
@@ -203,7 +201,7 @@ print(A().A1())   # 부모의 A1
 print(B().A1())   # 자식의 A1
 ```
 
-## 10. 다형성 (Polymorphism) (note_52)
+## 10. 다형성 (Polymorphism)
 - 공통 인터페이스를 사용해서 "조작"
 - `Parrot`, `Penguin` 모두 `fly(self)`를 가지고 있고, `flying_test(bird)`는 `bird.fly()`를 호출한다고 가정하고 사용
 - 객체 생성: `blu = Parrot()`, `peg = Penguin()` -> 객체를 넘기면 바로 `blu.fly`가 사용됨
@@ -230,7 +228,7 @@ print(flying_test(blu))                # Parrot can fly
 print(flying_test(peg))                # Penguin can't fly
 ```
 
-## 11. 기본값 매개변수, 속성 추가, isinstance / issubclass (note_52)
+## 11. 기본값 매개변수, 속성 추가, isinstance / issubclass
 - `ComplexNumber`: `def __init__(self, r=0, i=0)`: default 값이 존재 (값 지정 X -> 사용)
 - `num2 = ComplexNumber(5)`, `num2.attr = 10`: template에 필요에 따라 속성을 추가해 넣을 수 있음 (객체 한정해서 넣어줌)
 - 노트 메모: `del`을 사용하는 것보다 불필요한 class는 적게 만들자
@@ -259,7 +257,7 @@ print(issubclass(Dog, Animal), issubclass(Animal, Dog))   # True False
 ```
 - `[판독 불확실]`: 노트의 `issubclass()` 설명은 "sub 클래스가 있니?"로 읽혔으나, 정확히는 "첫 번째 클래스가 두 번째 클래스의 자식인가?"를 확인
 
-## 12. Polygon / Triangle 예제 (note_52)
+## 12. Polygon / Triangle 예제
 - `class Polygon`: `__init__(self, no_of_sides)`에서 `self.n = no_of_sides`, `self.sides = [0 for i in range(no_of_sides)]` (노트: `for i in range(no ~): self.sides.append(0)`)
 - `class Triangle(Polygon)`: 변이 3개인 도형으로 상속
 
@@ -294,7 +292,7 @@ print(t.find_area())                   # 6.0
 ```
 - 보충: 노트에는 `Triangle`의 본문이 없어서 `find_area`는 일반적인 예제(헤론의 공식)로 채움
 
-## 13. 계산기 클래스 (note_47)
+## 13. 계산기 클래스
 - 목표: ① 계산기 - 리스트 입력받아서 `+`, `-`, `x`, `÷`, `avg`, `max`, `min`
 - 숫자, 문자(연산자)를 구분해 예외처리 / 함수 단위로 만들기 / class 계산기
 - 공통: 입력 후 연산. 입력 리스트 예: `cal = [a, +, b, +, c, +, d]` (숫자, 연산기호)
@@ -365,7 +363,7 @@ except ValueError as e:
 ```
 - 보충: 노트의 "초기화"를 `reset()` 메서드로 구현. `max`/`min`/`avg`는 같은 입력 리스트로 계산
 
-## 14. 전화번호부 클래스 (note_47, 38)
+## 14. 전화번호부 클래스
 - 주제: 개인이름, 이메일 주소, 전화번호, 직장명 / 사용자 -> 개인정보 알려주면 저장 후 불러와 공유 / 검색을 통해 특정 정보를 알 수 있게
 - 노트 메모
   - `(self, 개인정보: dict)`: "나는 dict로 사용할 거야"라고 알려주는 용도(타입 힌트)
@@ -407,7 +405,7 @@ print(pb.get("park"))                        # None
 - 사용 라이브러리: 표준 라이브러리 `copy`
 - 보충: 예시 이메일 주소는 가상의 값(`example.com`)이며 노트의 실제 개인정보는 옮기지 않음
 
-## 15. 클래스 설계 메모 (note_54)
+## 15. 클래스 설계 메모
 - class 내부에는 "기능"만 있어서 설계할 때 "절차"를 가정해야 함. 훨씬 class가 많아진다 (일 단위/월 단위/품목별... 재고 관리 등)
 - 예: `class DB 계산기 (DB 생성/관리)`, `# super -> 객체 생성`
 - 관련: [12_shopping_cart_sales_system](12_shopping_cart_sales_system.md)의 7번 항목

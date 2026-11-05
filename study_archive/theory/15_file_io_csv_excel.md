@@ -2,9 +2,7 @@
 
 > 이미지: [note_53](assets/note_53_file_io_open_with_os.jpg) · [note_48](assets/note_48_exception_try_except_finally.jpg) · [note_54](assets/note_54_excel_pandas_class_method.jpg) · [note_55](assets/note_55_csv_module_dictreader.jpg)
 
-> note_48이 4/9(목) "File IO" 수업 첫 페이지이고, note_55는 4/15 표기. "텍스트(.txt)에 저장 후 찾아오는 연습"이 이 단원의 목표 (note_48 메모).
-
-## 1. File I/O 개념 (note_53)
+## 1. File I/O 개념
 - 외부로부터 정보를 가지고 와서 사용하거나, 정보를 내보냄
 - `open()`: 파일을 불러온다 (나만 사용), `close()`: 파일을 닫는다 (다른 사람도 사용 가능하도록)
 - 짝(쌍)으로 기억: 열었으면 닫아야 함
@@ -13,7 +11,7 @@
   - `encoding`: 어떤 방식으로 만들어졌는지 알려줌 (노트 예 `cp1252`)
   - 객체(`f`)에 내장 함수가 들어 있음, `f.close()`는 객체를 닫아 변수를 닫아줌
 
-## 2. mode 종류 (note_53)
+## 2. mode 종류
 
 | mode | 의미 |
 |---|---|
@@ -25,7 +23,7 @@
 
 - `write()`: mode가 `w`, `a`, `x`, `+` 조합일 때 / `read()`: mode가 `r`, `+` 조합일 때
 
-## 3. 쓰기와 읽기 (note_53)
+## 3. 쓰기와 읽기
 - `f.read(4)`: 4개 data만 읽어옴 / `f.read()`: 전체 읽어옴
 - `f.tell()`: 현재 위치 / `f.seek(0)`: 위치 이동 (처음으로 간다)
 - `for` loop로 읽으면 줄마다 `\n`이 붙은 형태로 나옴
@@ -73,7 +71,7 @@ with tempfile.TemporaryDirectory() as tmp:
 - 보충: `readlines()`는 문자열 리스트를 돌려주고, 숫자로 쓰려면 `int()`로 변환해야 함. `\n`(줄바꿈), `\t`(탭)은 문자열 안에 그대로 들어 있어 `strip()`으로 제거
 - 사용 라이브러리: 표준 라이브러리 `os`, `tempfile`
 
-## 4. try / finally 와 with (note_53)
+## 4. try / finally 와 with
 - 파일을 연 뒤 오류가 나도 닫히게: `try: f = open(...)` + `finally: f.close()`
 - `with open(...) as f:`: 내부적으로 동작이 끝나면 `end`, 코드 블록을 벗어나는 순간 `f`를 벗어남 -> `.close()` 별도 명령 없이도 끝낸다
 
@@ -103,7 +101,7 @@ with tempfile.TemporaryDirectory() as tmp:
 ```
 - 같은 방식은 [13_exceptions](13_exceptions.md)의 `try` / `finally` 정리와 연결됨
 
-## 5. os 모듈과 shutil (note_53)
+## 5. os 모듈과 shutil
 - `os.getcwd()`: 현재 작업 폴더 (`getcwdb()`는 bytes 버전)
 - `os.chdir('../home')`: 작업 폴더 이동
 - `import shutil`: 노트에 "완전삭제 (임시저장 후 삭제X)"라고 적혀 있음 -> 보충: `shutil.rmtree()`는 휴지통 없이 폴더를 통째로 지움. 파일 복사/이동은 `shutil.copy`, `shutil.move`
@@ -129,7 +127,7 @@ with tempfile.TemporaryDirectory() as tmp:
         os.chdir(old)
 ```
 
-## 6. csv 모듈 (note_55, 4/15)
+## 6. csv 모듈
 - CSV: comma separated value. 엑셀로도 열 수 있음
 - 사용: `import csv`, `with open(파일, mode=..., encoding=..., newline='') as f:`
   - `encoding`: `cp949` (MS/OS 한글), `utf-8` (mac)
@@ -167,7 +165,7 @@ with tempfile.TemporaryDirectory() as tmp:
 ```
 - 보충: 한글 Windows의 엑셀에서 바로 열 때 글자가 깨지면 `encoding="utf-8-sig"` 또는 `cp949`로 저장
 
-## 7. 엑셀 파일 다루기 (note_54)
+## 7. 엑셀 파일 다루기
 - 모듈: pandas (엑셀 + 복합, 데이터분석), openpyxl (엑셀 전용)
 - 노트: "잠깐잠깐 다뤄보자"
 - 활용: DB 품목을 엑셀에서 불러오기. 단가/재고가 문자로 되어 있으면 숫자로 형변환해서 사용
