@@ -1,60 +1,90 @@
-# Rock Paper Scissors
+# Rock Paper Scissors &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sup><sub>2026.03</sub></sup>
 
-Flet 기반 가위바위보 게임 (5판 3승제)
+Flet으로 만든 가위바위보 게임.
 
-## 프로젝트 소개
+컴퓨터와 5판 3승제로 겨루고, 라운드마다 양쪽 선택과 결과, 점수를 보여 줌.
 
-- 조건 분기, 변수 스코프(`nonlocal`), 리스트·딕셔너리 이론을 상태 기반 게임 로직에 적용하기 위해 개발
-- 5판 3승제 승패 판정과 라운드 진행 로직을 GUI로 구현
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flet](https://img.shields.io/badge/Flet-02569B?style=for-the-badge)
 
-## 적용 이론 및 구현 내용
+<img src="./images/userwin.png" width="180" alt="사용자 승리 화면">
 
-**핵심 역량**: 상태 관리(`nonlocal`), 승패 판정 로직, 이벤트 처리
+## 핵심 코드
 
-| 역량 | 구현 내용 | 이론 |
-|---|---|---|
-| 상태 관리 | 점수·라운드를 `nonlocal`로 관리 | [06_import_namespace](../../study_archive/theory/06_import_namespace.md) |
-| 승패 판정 | `random.choice`와 조건문으로 판정 | [09_rps_game](../../study_archive/theory/09_rps_game.md), [07_flow_control](../../study_archive/theory/07_flow_control.md) |
-| 데이터 구성 | 선택지 리스트, 이모지 딕셔너리 | [03_data_types](../../study_archive/theory/03_data_types.md) |
-| 이벤트 처리 | 버튼 `data` 속성과 `e.control.data`로 선택값 전달 | [08_functions](../../study_archive/theory/08_functions.md) |
-| 코드 재사용 | `make_button()`으로 가위·바위·보 버튼 3개 생성 | [08_functions](../../study_archive/theory/08_functions.md) |
-| 진행 제어 | 3승 또는 5라운드 도달 시 최종 결과 표시, 다시하기로 상태 초기화 | [07_flow_control](../../study_archive/theory/07_flow_control.md) |
-| 레이아웃 | `Stack`으로 배경 위에 게임 카드 배치 | - |
+### 승패 판정과 라운드 진행
 
-## 구현 결과 및 실행
+[flet_RSP_game.py](flet_RSP_game.py) · 이론 정리: [가위바위보](../../study_archive/theory/09_rps_game.md) · [네임스페이스](../../study_archive/theory/06_import_namespace.md) · [흐름 제어](../../study_archive/theory/07_flow_control.md) · [함수](../../study_archive/theory/08_functions.md)
 
-### 스크린샷
+점수와 라운드를 `nonlocal`로 바깥 함수에 두고, 버튼을 누를 때마다 판정 후 상태 갱신.
 
-<table>
-<tr><td align="center" valign="top"><img src="./images/home.png" width="420"><br><sub>홈 화면 — 1/5 라운드, 점수 0:0, 가위·바위·보 버튼, 5전 3승제 안내</sub></td><td align="center" valign="top"><img src="./images/userwin.png" width="420"><br><sub>사용자 승리 — 3승 도달 시 5라운드 전(4/5) 조기 종료, 최종 결과 표시</sub></td></tr>
-</table>
+```python
+def play(user_choice):
+    nonlocal user_score, computer_score, round_count   # 바깥 함수의 점수·라운드 변경
+
+    if round_count >= 5:
+        return
+
+    computer_choice = random.choice(choices)
+
+    if user_choice == computer_choice:
+        result = "무승부!"
+    elif (
+        (user_choice == "가위" and computer_choice == "보") or
+        (user_choice == "바위" and computer_choice == "가위") or
+        (user_choice == "보" and computer_choice == "바위")
+    ):
+        result = "사용자 승!"
+        user_score += 1
+    else:
+        result = "컴퓨터 승!"
+        computer_score += 1
+
+    round_count += 1
+    # (결과·점수·라운드 텍스트 갱신은 생략)
+
+    if user_score == 3 or computer_score == 3 or round_count == 5:   # 3승 또는 5라운드면 최종 결과
+        ...
+```
+
+## 주요 기능
+
+| 기능 | 설명 |
+|---|---|
+| 5판 3승제 | 3승 도달 또는 5라운드 종료 시 최종 결과 표시 |
+| 승패 판정 | `random.choice`로 컴퓨터 선택, 조건문으로 판정 |
+| 버튼 생성 | `make_button()`으로 가위·바위·보 버튼 생성, `data`로 선택값 전달 |
+| 다시하기 | 점수·라운드 초기화 |
+| 화면 구성 | `Stack`으로 꽃·나비 배경 위에 게임 카드 배치 |
 
 <details>
-<summary>스크린샷 더 보기</summary>
+<summary>전체 화면 보기</summary>
 
-<table>
-<tr><td align="center" valign="top"><img src="./images/restart.png" width="420"><br><sub>다시하기 — 라운드·점수 초기화 후 "다시 시작합니다" 표시</sub></td><td align="center" valign="top"><img src="./images/round4.png" width="420"><br><sub>컴퓨터 승리(조기 종료) — 4/5 라운드에서 컴퓨터 3승 도달, 양측 선택·라운드 결과 표시</sub></td></tr>
-<tr><td align="center" valign="top"><img src="./images/tie.png" width="420"><br><sub>무승부 — 5/5 라운드 종료 시 2:2</sub></td><td align="center" valign="top"><img src="./images/comwin.png" width="420"><br><sub>컴퓨터 승리 — 5/5 라운드 종료 시 3:2</sub></td></tr>
-</table>
+| 시작 화면 | 다시하기 | 컴퓨터 승리 (4라운드) |
+|---|---|---|
+| <img src="./images/home.png" width="150" alt="시작 화면"> | <img src="./images/restart.png" width="150" alt="다시하기"> | <img src="./images/round4.png" width="150" alt="컴퓨터 승리 4라운드"> |
+
+| 무승부 (2:2) | 컴퓨터 승리 (3:2) | |
+|---|---|---|
+| <img src="./images/tie.png" width="150" alt="무승부"> | <img src="./images/comwin.png" width="150" alt="컴퓨터 승리"> | |
 
 </details>
 
-### 사용 기술
+## 개선 방향
 
-Python, Flet, `random`
+- 3승 도달 후 5라운드 전이면 버튼 입력 잠금
 
-### 개선 방향
+## 파일 구조
 
-- 3승 도달 시 입력 잠금
+```
+RSP_game/
+├── flet_RSP_game.py   # 전체 코드
+├── images/            # README 스크린샷
+└── README.md
+```
 
-### 실행 방법
+## 실행 방법
 
-```bash
+```
 pip install flet
 python flet_RSP_game.py
 ```
-
-### 파일 구성
-
-- `flet_RSP_game.py`: 전체 코드
-- `images/`: 스크린샷
