@@ -1,58 +1,70 @@
-# UP-DOWN Game
+# UP-DOWN Game &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sup><sub>2026.03</sub></sup>
 
-Flet 기반 숫자 맞추기 게임 (난수 비교, UP/DOWN 피드백)
+Flet으로 만든 숫자 맞추기 게임.
 
-## 프로젝트 소개
+1~100 사이 숫자를 입력하면 정답과 비교해 UP · DOWN · CORRECT로 알려 줌.
 
-- 난수 생성, 조건 분기, 형 변환 이론을 GUI 이벤트 처리와 결합해 실습하기 위해 개발
-- 입력 → 판정 → 출력 흐름을 30줄 단일 파일로 구현
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flet](https://img.shields.io/badge/Flet-02569B?style=for-the-badge)
 
-## 적용 이론 및 구현 내용
+<img src="./images/updown_correct.png" width="240" alt="정답 화면">
 
-**핵심 역량**: 난수 생성, 조건 분기, 입력 처리, 이벤트 핸들러
+## 핵심 코드
 
-| 역량 | 구현 내용 | 이론 |
-|---|---|---|
-| 난수 생성 | `random.randint`로 정답 생성 | [06_import_namespace](../../study_archive/theory/06_import_namespace.md) |
-| 입력 처리 | `TextField` 입력값을 `int()`로 변환 | [04_type_casting_io](../../study_archive/theory/04_type_casting_io.md) |
-| 조건 분기 | `if / elif / else`로 UP·DOWN·CORRECT 판정 | [07_flow_control](../../study_archive/theory/07_flow_control.md), [10_practice](../../study_archive/theory/10_practice.md) |
-| 이벤트 핸들러 | 버튼 `on_click`에 `check` 함수 연결, `page.update()`로 화면 갱신 | [08_functions](../../study_archive/theory/08_functions.md) |
+### 입력 판정
 
-## 구현 결과 및 실행
+[up_down_game.py](up_down_game.py) · 이론 정리: [import](../../study_archive/theory/06_import_namespace.md) · [형 변환](../../study_archive/theory/04_type_casting_io.md) · [흐름 제어](../../study_archive/theory/07_flow_control.md) · [함수](../../study_archive/theory/08_functions.md)
 
-### 스크린샷
+입력값을 정수로 바꿔 정답과 비교하고, 결과 메시지만 화면에 갱신.
 
-<table>
-<tr><td align="center" valign="top"><img src="./images/updowngame.png" width="420"><br><sub>초기 화면 — 1~100 입력 안내, 입력창, 확인 버튼</sub></td><td align="center" valign="top"><img src="./images/updown_correct.png" width="420"><br><sub>88 입력 → `CORRECT` 출력 (정답)</sub></td></tr>
-</table>
+```python
+answer = random.randint(1, 100)       # 실행할 때마다 1~100 정답 생성
+
+def check(e):                         # 확인 버튼 on_click 핸들러
+    n = int(input_num.value)          # TextField 문자열 → 정수
+    if n > answer:
+        msg.value = "DOWN"
+    elif n < answer:
+        msg.value = "UP"
+    else:
+        msg.value = "CORRECT"
+    page.update()                     # 바뀐 메시지를 화면에 반영
+```
+
+## 주요 기능
+
+| 기능 | 설명 |
+|---|---|
+| 정답 생성 | 실행할 때마다 1~100 난수 |
+| 입력 판정 | 정답보다 크면 DOWN, 작으면 UP, 같으면 CORRECT |
+| 화면 갱신 | 확인 버튼 클릭 시 결과 메시지만 갱신 |
 
 <details>
-<summary>스크린샷 더 보기</summary>
+<summary>전체 화면 보기</summary>
 
-<table>
-<tr><td align="center" valign="top"><img src="./images/updown_up.png" width="420"><br><sub>65 입력 → `UP` 출력 (정답이 입력값보다 큼)</sub></td><td align="center" valign="top"><img src="./images/updown_down.png" width="420"><br><sub>95 입력 → `DOWN` 출력 (정답이 입력값보다 작음)</sub></td></tr>
-</table>
+| 시작 화면 | UP | DOWN |
+|---|---|---|
+| <img src="./images/updowngame.png" width="200" alt="시작 화면"> | <img src="./images/updown_up.png" width="200" alt="UP"> | <img src="./images/updown_down.png" width="200" alt="DOWN"> |
 
 </details>
 
-### 사용 기술
+## 개선 방향
 
-Python, Flet, `random`
+- 숫자가 아닌 입력 예외 처리(`try/except`), 1~100 범위 검증
+- 시도 횟수 표시, 새 게임 버튼
 
-### 개선 방향
+## 파일 구조
 
-- `try/except`로 숫자가 아닌 입력 처리
-- 1~100 범위 검증
-- 시도 횟수 표시, 새 게임 기능
+```
+up_down_game/
+├── up_down_game.py   # 전체 코드
+├── images/           # README 스크린샷
+└── README.md
+```
 
-### 실행 방법
+## 실행 방법
 
-```bash
+```
 pip install flet
 python up_down_game.py
 ```
-
-### 파일 구성
-
-- `up_down_game.py`: 전체 코드
-- `images/`: 스크린샷
